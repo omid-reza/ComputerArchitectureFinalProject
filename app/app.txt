@@ -1,0 +1,4 @@
+ADC -64
+JMP 122
+OR -1
+ROR
