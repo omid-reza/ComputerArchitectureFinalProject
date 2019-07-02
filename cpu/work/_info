@@ -1,0 +1,259 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\10.0
+vAdder32bit
+I@CnD<:mRSODdff5_ER3i:1
+VI2Y_B9IBo77>mlR8h[2Hg2
+Z0 dC:\Users\amin\Desktop\toy project
+Z1 w1561967375
+Z2 8C:/Users/amin/Desktop/toy project/mux.v
+Z3 FC:/Users/amin/Desktop/toy project/mux.v
+L0 32
+Z4 OV;L;6.5e;42
+r1
+31
+Z5 !s102 -nocovercells
+Z6 o-work work -nocovercells -O0
+n@adder32bit
+!s100 g:`;;Q3]SNHB^_n`DSc153
+!s85 0
+!s101 -O0
+vAlu
+IV<4@U4Jz3D]4h6<I_^gPK3
+VY?T5;66lA3a5EXE9Q`=gI1
+Z7 dC:\Users\amin\Desktop\toy project
+w1561998318
+8C:/Users/amin/Desktop/toy project/Alu.v
+FC:/Users/amin/Desktop/toy project/Alu.v
+L0 1
+R4
+r1
+31
+R5
+R6
+n@alu
+!s100 EB69YZ9EQB?C]6bE=fgj@2
+!s85 0
+!s101 -O0
+vControl
+IWIOb7Rn4DF3zRe7;d`UCo1
+V_jzI5F4WH6K23XhBe_Nf`2
+R7
+w1561956124
+8C:/Users/amin/Desktop/toy project/Control.v
+FC:/Users/amin/Desktop/toy project/Control.v
+L0 1
+R4
+r1
+31
+R5
+R6
+n@control
+!s100 ]oHA_]k8o;=V;_8b=b`^A0
+!s85 0
+!s101 -O0
+vcpuToy
+!s100 ?W9OAmXU0`fn^]^3Rb?Vc3
+Ibfb52MNm1<`g4dE:M^;Bb2
+VIgYBFS[g^fm2l7BSBA:jB3
+R7
+w1562001174
+Z8 8C:/Users/amin/Desktop/toy project/cpuToy.v
+Z9 FC:/Users/amin/Desktop/toy project/cpuToy.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s101 -O0
+R5
+R6
+ncpu@toy
+vDataMem
+IQh?hW_ZHmnE^FBIzN3gfT0
+VY3<LE088Tgc6iK64A7T1e2
+R7
+w1561996234
+8C:/Users/amin/Desktop/toy project/DataMem.v
+FC:/Users/amin/Desktop/toy project/DataMem.v
+L0 2
+R4
+r1
+31
+R5
+R6
+n@data@mem
+!s100 ]:keUO2_;C94628G4KhMC3
+!s85 0
+!s101 -O0
+vInMem
+I]71oCT?]dm1cL:08n6E:Q3
+VVhmY?6Alb49ib89od9_Ma0
+R7
+w1561956430
+8C:/Users/amin/Desktop/toy project/InMem.v
+FC:/Users/amin/Desktop/toy project/InMem.v
+L0 2
+R4
+r1
+31
+R5
+R6
+n@in@mem
+!s100 6VA8d9C8jj0?@DNgEZVJo0
+!s85 0
+!s101 -O0
+vinstmem
+I:ST=[z8c^ihn33bRBfanL2
+V_BTQF2QYMTH7SJJJ2bQ=^3
+R7
+w1561917665
+R8
+R9
+L0 9
+R4
+r1
+31
+R5
+R6
+!s100 7WXYY4o6[3QAf0VA6_Dh00
+!s85 0
+!s101 -O0
+vMux2to1
+IUHi7JeWIIG6bO]iR>55@C3
+VjOioaG[Bg5@RV9Whb^WC:0
+R7
+w1561967085
+R2
+R3
+L0 2
+R4
+r1
+31
+R5
+R6
+n@mux2to1
+!s100 GKY>YDJZc7n7`<nQcIE[:0
+!s85 0
+!s101 -O0
+vMux2to1_12bit
+I<_C_E^GdLB_:`_MO^9:DQ2
+VH2>5SFn2d=28:BNB6SDlI3
+R7
+R1
+R2
+R3
+L0 11
+R4
+r1
+31
+R5
+R6
+n@mux2to1_12bit
+!s100 M4L9`<?OQY]Va?;HAm`K?0
+!s85 0
+!s101 -O0
+vMux2to1_16bit
+IP?PGXKfiGBdmc7_ZR<X]b1
+VKkYMQfA@E=mkmKH5P9_CE1
+R7
+R1
+R2
+R3
+L0 2
+R4
+r1
+31
+R5
+R6
+n@mux2to1_16bit
+!s100 h^3jN4:ofBl=3?d_iQ?1O2
+!s85 0
+!s101 -O0
+vMux3to1
+I3[FmDZo9m2W98d=zoBNC03
+VdYW9kg<C1RV2n7GzA]>F`0
+R7
+R1
+R2
+R3
+L0 21
+R4
+r1
+31
+R5
+R6
+n@mux3to1
+!s100 8e8YIkPUTWmK:VL_ZjKNn3
+!s85 0
+!s101 -O0
+vPc
+IM>H?gUW[c]c4L@7ZfU9U<0
+Vhc`DQ=cz5zJe23^F<P:5n2
+R7
+Z10 w1561997283
+Z11 8C:/Users/amin/Desktop/toy project/regs.v
+Z12 FC:/Users/amin/Desktop/toy project/regs.v
+L0 22
+R4
+r1
+31
+R5
+R6
+n@pc
+!s100 H[Ee]34e`SZli5VBH2Em01
+!s85 0
+!s101 -O0
+vRegA
+IEa[Wazkh]mh>hkoQ:l=@d2
+VT_5=1IAjhVoRYUL0SzhMb2
+R7
+R10
+R11
+R12
+L0 2
+R4
+r1
+31
+R5
+R6
+n@reg@a
+!s100 h=7Fa1JV_7C5=JIkS9^dT3
+!s85 0
+!s101 -O0
+vRegt
+Ikh0SM4z>fhbG>2ULK2DNn1
+V:5WnZ=KD7o?H[1f1`ZL<`1
+R7
+w1561957364
+R11
+R12
+L0 12
+R4
+r1
+31
+R5
+R6
+n@regt
+!s100 U]6L0TY^gRTZ4@TTh2Kl_2
+!s85 0
+!s101 -O0
+vRegT
+InD<n4cOPY:C5nHH;d7kb<1
+V;2lEiKcCWX3dz`nW>DQ:f2
+R7
+R10
+R11
+R12
+L0 12
+R4
+r1
+31
+R5
+R6
+n@reg@t
+!s100 oS5GD<d3?UWPfVJ6?5fGe1
+!s85 0
+!s101 -O0
