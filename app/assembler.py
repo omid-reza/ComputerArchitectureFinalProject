@@ -12,8 +12,9 @@ def address_binary_convertor(decimal_address):
 		raw_address=(12-len(raw_address))*'0'+str(raw_address) # Extend Sign Bit For Pos Numbers
 	return raw_address
 
-input_file=open('app/app.txt', 'r') # Open File For Read Input(App) File => r :read mode
-output_file=open('app/binary.txt', 'w') # Open File For Write OutPut(binary) Fille => w : write mode
+input_file=open('app.txt', 'r') # Open File For Read Input(App) File => r :read mode
+command_out_file=open('binary.txt', 'w') # Open File For Write OutPut(binary) Fille => w : write mode
+data_out_file=open('data.txt', 'w') # Open File For Write OutPut(binary) Fille => w : write mode
 commands=['JMP', 'ADC', 'XOR', 'SBC', 'ROR', 'TAT', 'OR', None, 'AND', 'LDC', 'BCC', 'BNE', 'LDI', 'STT', 'LDA', 'STA'] # commands, don't change it
 commands_with_address=['JMP', 'ADC', 'XOR', 'SBC', 'OR','AND', 'LDC', 'BCC', 'BNE', 'LDA', 'STA'] # commands which need address
 data_address=None
@@ -30,7 +31,7 @@ for line in input_file:
 		for x in memory:
 			if x[0]==line[1]:
 				memory.remove(x)
-		memory.append([line[1], address_binary_convertor(data_address)]) # insert data to memory
+		memory.append([line[1], address_binary_convertor(data_address), address_binary_convertor(int(line[2]))], ) # insert data to memory('name', 'address', 'value')
 	else: # detect invalid command -> stop compile proccess
 		print("Invalid command : "+line[0])
 		print("Exit compile proccess...")
@@ -48,8 +49,12 @@ for line in input_file:
 					address=x[1]
 					break
 	if line[0] in commands:
-		output_file.write(index_binary_convertor(index)) # write op of command in output file
-		output_file.write(address) # write address of command in output file
-		output_file.write("\n") # go to next line
+		command_out_file.write(index_binary_convertor(index)) # write op of command in output file
+		command_out_file.write(address) # write address of command in output file
+		command_out_file.write("\n") # go to next line
+
+for my_data in memory:
+	data_out_file.write(str(my_data[1])+str(my_data[2])+"\n") #write into data file(address+data)
 input_file.close()
-output_file.close()
+command_out_file.close()
+data_out_file.close()
