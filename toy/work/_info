@@ -1,0 +1,107 @@
+m255
+K3
+13
+cModel Technology
+dD:\modelSim\altera
+vAlu
+I[TKFRoLiULkE8KMJAa1QC3
+VY?T5;66lA3a5EXE9Q`=gI1
+Z0 dC:\Users\omid\Desktop\CA_Final\toy
+w1562316821
+8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
+FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
+L0 1
+Z1 OV;L;6.5e;42
+r1
+31
+Z2 !s102 -nocovercells
+Z3 o-work work -nocovercells -O0
+n@alu
+!s100 0Q]NDDO@Jh^]oD;1ee8Ea0
+!s85 0
+!s101 -O0
+vController
+Ih3SEzadcOOUUDWl]ZDk9e0
+VA]ekeSBJ=0G75ib8PB^;I2
+Z4 dC:\Users\omid\Desktop\CA_Final\toy
+w1562316934
+8C:/Users/omid/Desktop/CA_Final/toy/Controller.v
+FC:/Users/omid/Desktop/CA_Final/toy/Controller.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@controller
+!s100 m7:RfSMekQb;Wj^3OD:NM2
+!s85 0
+!s101 -O0
+vDataMemory
+IEhQAaFhA`bAHzEW;U4>G=3
+VNV`MZ@U[A55RG6f_eM7:42
+R4
+w1562317219
+8C:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v
+FC:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@data@memory
+!s100 IYPllAUnXiC[[7Nz<mWaA1
+!s85 0
+!s101 -O0
+vInMemory
+I4H6zo2nnR6VVX8W_0?d400
+Vh?zooEkX4MWn89N73j=cM1
+R4
+w1562317264
+8C:/Users/omid/Desktop/CA_Final/toy/InMemory.v
+FC:/Users/omid/Desktop/CA_Final/toy/InMemory.v
+L0 2
+R1
+r1
+31
+R2
+R3
+n@in@memory
+!s100 hgTm2OZ78V6ODaU^[BaR80
+!s85 0
+!s101 -O0
+vTB
+!s100 k]j^FE=D1m]UA>D?5M8[D3
+IiKb5@l93UThEbhJYb<80[2
+Vc<=32996OT2f`M7E_UhYX1
+R4
+w1562317638
+8C:/Users/omid/Desktop/CA_Final/toy/TB.v
+FC:/Users/omid/Desktop/CA_Final/toy/TB.v
+L0 1
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+R3
+n@t@b
+vToy
+IO_Um=GL9iKBAfWGzf98R51
+VQnoLJ3nkl=l;hd=Xi1KE`1
+R4
+w1562317870
+8C:/Users/omid/Desktop/CA_Final/toy/Toy.v
+FC:/Users/omid/Desktop/CA_Final/toy/Toy.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@toy
+!s100 7m<`XFFN]kTghUd8cFFZz3
+!s85 0
+!s101 -O0
