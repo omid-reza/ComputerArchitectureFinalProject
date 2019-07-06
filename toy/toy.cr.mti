@@ -12,14 +12,12 @@ Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 Top level modules:
 	Toy
 
-} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Memory.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Memory.v
+} {} {}} C:/Users/omid/Desktop/CA_Final/toy/TB.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/TB.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module InMemory
--- Compiling module DataMemory
+-- Compiling module TB
 
 Top level modules:
-	InMemory
-	DataMemory
+	TB
 
 } {} {}} C:/Users/omid/Desktop/CA_Final/toy/Reg.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Reg.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
