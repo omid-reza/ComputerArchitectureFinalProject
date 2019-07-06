@@ -5,6 +5,8 @@ entity Alu is
         alu_op          : in     vl_logic_vector(2 downto 0);
         a               : in     vl_logic_vector(15 downto 0);
         src             : in     vl_logic_vector(15 downto 0);
-        rd              : out    vl_logic_vector(15 downto 0)
+        rd              : out    vl_logic_vector(15 downto 0);
+        z               : out    vl_logic;
+        c               : out    vl_logic
     );
 end Alu;

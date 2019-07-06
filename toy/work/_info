@@ -4,104 +4,155 @@ K3
 cModel Technology
 dD:\modelSim\altera
 vAlu
-I[TKFRoLiULkE8KMJAa1QC3
-VY?T5;66lA3a5EXE9Q`=gI1
+I>fYYVJ2GJRLgo=T3<ife]0
+Vz2mgf^j1V;61[ZfDQkj9`1
 Z0 dC:\Users\omid\Desktop\CA_Final\toy
-w1562316821
-8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
-FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
+Z1 w1562396794
+Z2 8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
+Z3 FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
 L0 1
-Z1 OV;L;6.5e;42
+Z4 OV;L;6.5e;42
 r1
 31
-Z2 !s102 -nocovercells
-Z3 o-work work -nocovercells -O0
+Z5 !s102 -nocovercells
+Z6 o-work work -nocovercells -O0
 n@alu
-!s100 0Q]NDDO@Jh^]oD;1ee8Ea0
+!s100 UIO>M`dh:hGH:c;_:?9a81
+!s85 0
+!s101 -O0
+vAluTb
+I?WNRk@PNd3FCjQl0P@O[93
+VWfVe7W7^>iFZWT1f^GL_Y1
+Z7 dC:\Users\omid\Desktop\CA_Final\toy
+R1
+R2
+R3
+L0 16
+R4
+r1
+31
+R5
+R6
+n@alu@tb
+!s100 a@0bX1@<k;KLRRL`YPT_d0
 !s85 0
 !s101 -O0
 vController
-Ih3SEzadcOOUUDWl]ZDk9e0
+If2EL2DDTE:ke2F;LN^IIM0
 VA]ekeSBJ=0G75ib8PB^;I2
-Z4 dC:\Users\omid\Desktop\CA_Final\toy
-w1562316934
+R7
+w1562397030
 8C:/Users/omid/Desktop/CA_Final/toy/Controller.v
 FC:/Users/omid/Desktop/CA_Final/toy/Controller.v
 L0 1
-R1
+R4
 r1
 31
-R2
-R3
+R5
+R6
 n@controller
-!s100 m7:RfSMekQb;Wj^3OD:NM2
+!s100 k<EoJ9WW<D<=RG`ZbP;kj0
 !s85 0
 !s101 -O0
 vDataMemory
-IEhQAaFhA`bAHzEW;U4>G=3
+!s100 GEFZ^Gnz2ANFozA4k09NU2
+IR0oDKVP6_<mHzz>`HH38_3
 VNV`MZ@U[A55RG6f_eM7:42
+R7
+Z8 w1562397075
+Z9 8C:/Users/omid/Desktop/CA_Final/toy/Memory.v
+Z10 FC:/Users/omid/Desktop/CA_Final/toy/Memory.v
+L0 15
 R4
-w1562317219
-8C:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v
-FC:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v
+r1
+!s85 0
+31
+!s101 -O0
+R5
+R6
+n@data@memory
+vInMemory
+!s100 8Z7ZHGI48G5=zS5h1AbAz0
+IC7>XlFQVj@JGKYif1GBSL3
+Vh?zooEkX4MWn89N73j=cM1
+R7
+R8
+R9
+R10
 L0 1
-R1
+R4
+r1
+!s85 0
+31
+!s101 -O0
+R5
+R6
+n@in@memory
+vRegA
+IP7ET>iLX^1_[;CgL9GH4d3
+VT_5=1IAjhVoRYUL0SzhMb2
+R7
+Z11 w1562396997
+Z12 8C:/Users/omid/Desktop/CA_Final/toy/Reg.v
+Z13 FC:/Users/omid/Desktop/CA_Final/toy/Reg.v
+L0 1
+R4
 r1
 31
-R2
-R3
-n@data@memory
-!s100 IYPllAUnXiC[[7Nz<mWaA1
+R5
+R6
+n@reg@a
+!s100 a7jJZDME^j>WOMOA?FTV60
 !s85 0
 !s101 -O0
-vInMemory
-I4H6zo2nnR6VVX8W_0?d400
-Vh?zooEkX4MWn89N73j=cM1
+vRegT
+Ik<9kzePfl0XB@@fkhl@8P3
+V;2lEiKcCWX3dz`nW>DQ:f2
+R7
+R11
+R12
+R13
+L0 11
 R4
-w1562317264
-8C:/Users/omid/Desktop/CA_Final/toy/InMemory.v
-FC:/Users/omid/Desktop/CA_Final/toy/InMemory.v
-L0 2
-R1
 r1
 31
-R2
-R3
-n@in@memory
-!s100 hgTm2OZ78V6ODaU^[BaR80
+R5
+R6
+n@reg@t
+!s100 4YES1j:AKPFR=P`ULZRQU1
 !s85 0
 !s101 -O0
 vTB
-!s100 k]j^FE=D1m]UA>D?5M8[D3
-IiKb5@l93UThEbhJYb<80[2
+InfY@^:>ETMCU22CH0JbnX1
 Vc<=32996OT2f`M7E_UhYX1
-R4
-w1562317638
+R7
+w1562397113
 8C:/Users/omid/Desktop/CA_Final/toy/TB.v
 FC:/Users/omid/Desktop/CA_Final/toy/TB.v
 L0 1
-R1
-r1
-!s85 0
-31
-!s101 -O0
-R2
-R3
-n@t@b
-vToy
-IO_Um=GL9iKBAfWGzf98R51
-VQnoLJ3nkl=l;hd=Xi1KE`1
 R4
-w1562317870
+r1
+31
+R5
+R6
+n@t@b
+!s100 dQjeiDC`HfzE:09SK_ZQd1
+!s85 0
+!s101 -O0
+vToy
+IjN]YE9RiePo<AgIJ^T:z`0
+VQnoLJ3nkl=l;hd=Xi1KE`1
+R7
+w1562396937
 8C:/Users/omid/Desktop/CA_Final/toy/Toy.v
 FC:/Users/omid/Desktop/CA_Final/toy/Toy.v
 L0 1
-R1
+R4
 r1
 31
-R2
-R3
+R5
+R6
 n@toy
-!s100 7m<`XFFN]kTghUd8cFFZz3
+!s100 >a:?NJ<nNJi61FP=QLXF^1
 !s85 0
 !s101 -O0

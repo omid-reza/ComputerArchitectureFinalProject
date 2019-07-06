@@ -1,43 +1,41 @@
-C:/Users/omid/Desktop/CA_Final/toy/Toy.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Toy.v
-Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module Toy
-
-Top level modules:
-	Toy
-
-} {} {}} C:/Users/omid/Desktop/CA_Final/toy/InMemory.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/InMemory.v
-Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module InMemory
-
-Top level modules:
-	InMemory
-
-} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Controller.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Controller.v
+C:/Users/omid/Desktop/CA_Final/toy/Controller.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Controller.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 -- Compiling module Controller
 
 Top level modules:
 	Controller
 
-} {} {}} C:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/DatraMemory.v
+} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Toy.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Toy.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
+-- Compiling module Toy
+
+Top level modules:
+	Toy
+
+} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Memory.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Memory.v
+Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
+-- Compiling module InMemory
 -- Compiling module DataMemory
 
 Top level modules:
+	InMemory
 	DataMemory
 
-} {} {}} C:/Users/omid/Desktop/CA_Final/toy/TB.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/TB.v
+} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Reg.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Reg.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module TB
+-- Compiling module RegA
+-- Compiling module RegT
 
 Top level modules:
-	TB
+	RegA
+	RegT
 
 } {} {}} C:/Users/omid/Desktop/CA_Final/toy/Alu.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Alu.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 -- Compiling module Alu
+-- Compiling module AluTb
 
 Top level modules:
-	Alu
+	AluTb
 
 } {} {}}

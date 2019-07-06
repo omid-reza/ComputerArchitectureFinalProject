@@ -179,6 +179,17 @@ end
       alu_op=3'bxxx;
       end
       
+       4'bxxxx:begin//default
+      src_pc=2'bxx;
+      wr_t=1'bx;
+      wr_a=1'bx;
+      src_a=1'bx;
+      wr_dmem=1'bx;
+      rd_dmem=1'bx;
+      src_adr=1'bx;
+      src_data=1'bx;
+      alu_op=3'bxxx;
+      end
       endcase
         
 end
