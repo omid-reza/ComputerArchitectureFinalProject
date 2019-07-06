@@ -12,6 +12,15 @@ Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 Top level modules:
 	Controller
 
+} {} {}} C:/Users/omid/Desktop/CA_Final/toy/Memory.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Memory.v
+Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
+-- Compiling module InMemory
+-- Compiling module DataMemory
+
+Top level modules:
+	InMemory
+	DataMemory
+
 } {} {}} C:/Users/omid/Desktop/CA_Final/toy/Reg.v {1 {vlog -work work -nocovercells C:/Users/omid/Desktop/CA_Final/toy/Reg.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 -- Compiling module RegA

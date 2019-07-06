@@ -1,4 +1,6 @@
-module Controller(input [3:0]opcode,output reg[1:0]src_pc,output reg[2:0]alu_op , output reg wr_t, reg wr_a ,reg src_a ,reg wr_dmem,reg rd_dmem ,reg src_adr ,reg src_data);
+module Controller(input z,c,input [3:0]opcode,output reg[1:0]src_pc,output reg[2:0]alu_op ,
+ output reg wr_t, reg wr_a ,reg src_a ,reg wr_dmem,reg rd_dmem ,reg src_adr ,reg src_data);
+reg zero=1'b0;
 always @(*)
 begin
   case(opcode)
@@ -113,7 +115,7 @@ end
       alu_op=3'bxxx;
       end
       4'b1010:begin//BCC VEC
-      src_pc=2'b00;
+      src_pc={~c,zero};
       wr_t=1'b0;
       wr_a=1'b1;
       src_a=1'b1;
@@ -124,7 +126,7 @@ end
       alu_op=3'bxxx;
       end
       4'b1011:begin//BNE VEC
-      src_pc=2'b00;
+      src_pc={~z,zero};
       wr_t=1'b0;
       wr_a=1'b0;
       src_a=1'bx;
@@ -175,7 +177,7 @@ end
       wr_dmem=1'b1;
       rd_dmem=1'bx;
       src_adr=1'bx;
-      src_data=1'bx;
+      src_data=1'b0;
       alu_op=3'bxxx;
       end
       
