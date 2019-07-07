@@ -173,10 +173,10 @@ end
       src_pc=2'b00;
       wr_t=1'b0;
       wr_a=1'b0;
-      src_a=1'bx;
+      src_a=1'b0;
       wr_dmem=1'b1;
-      rd_dmem=1'bx;
-      src_adr=1'bx;
+      rd_dmem=1'b0;
+      src_adr=1'b0;
       src_data=1'b0;
       alu_op=3'bxxx;
       end

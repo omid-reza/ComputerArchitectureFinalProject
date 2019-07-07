@@ -7,7 +7,7 @@ vAlu
 I>fYYVJ2GJRLgo=T3<ife]0
 Vz2mgf^j1V;61[ZfDQkj9`1
 Z0 dC:\Users\omid\Desktop\CA_Final\toy
-w1562410902
+w1562415092
 Z1 8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
 Z2 FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
 L0 1
@@ -38,10 +38,10 @@ n@alu@tb
 !s85 0
 !s101 -O0
 vController
-IngOYfe:hCI9P4:blWN_h80
+IWdaYDJDe8ZoC?Me@IlDl`1
 VGfeTV1VZ>50SLQ]g`9@g62
 R6
-w1562410904
+w1562477176
 8C:/Users/omid/Desktop/CA_Final/toy/Controller.v
 FC:/Users/omid/Desktop/CA_Final/toy/Controller.v
 L0 1
@@ -51,15 +51,15 @@ r1
 R4
 R5
 n@controller
-!s100 c3<OBR5Y041BcFj;bdBcC1
+!s100 ZR=KVm:9X@M7hN_j@=<]i1
 !s85 0
 !s101 -O0
 vDataMemory
-!s100 M`KdaR7Dg;d0XD@^m=UR12
-I2?Gbo[AHDLS=LFTi?X^CV1
+!s100 PMk]6DW=]5Y]2EoTVOnMP3
+IG<74WhSBkHS`mIm^2HYG>1
 VNV`MZ@U[A55RG6f_eM7:42
 R6
-Z7 w1562408697
+Z7 w1562415153
 Z8 8C:/Users/omid/Desktop/CA_Final/toy/Memory.v
 Z9 FC:/Users/omid/Desktop/CA_Final/toy/Memory.v
 L0 15
@@ -143,7 +143,7 @@ vToy
 I`LHGRE`cV?LiJhKfd_m6G0
 VQnoLJ3nkl=l;hd=Xi1KE`1
 R6
-w1562410792
+w1562415138
 8C:/Users/omid/Desktop/CA_Final/toy/Toy.v
 FC:/Users/omid/Desktop/CA_Final/toy/Toy.v
 L0 1
