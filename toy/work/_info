@@ -4,10 +4,10 @@ K3
 cModel Technology
 dD:\modelSim\altera
 vAlu
-I>fYYVJ2GJRLgo=T3<ife]0
+Ik;NnUQC?X1ab6Za;d4YN`1
 Vz2mgf^j1V;61[ZfDQkj9`1
 Z0 dC:\Users\omid\Desktop\CA_Final\toy
-w1562415092
+w1562580690
 Z1 8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
 Z2 FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
 L0 1
@@ -17,7 +17,7 @@ r1
 Z4 !s102 -nocovercells
 Z5 o-work work -nocovercells -O0
 n@alu
-!s100 UIO>M`dh:hGH:c;_:?9a81
+!s100 Iln>neOWBS;d@D]BUI=NA2
 !s85 0
 !s101 -O0
 vAluTb
@@ -41,7 +41,7 @@ vController
 IWdaYDJDe8ZoC?Me@IlDl`1
 VGfeTV1VZ>50SLQ]g`9@g62
 R6
-w1562477176
+w1562581003
 8C:/Users/omid/Desktop/CA_Final/toy/Controller.v
 FC:/Users/omid/Desktop/CA_Final/toy/Controller.v
 L0 1
@@ -55,11 +55,11 @@ n@controller
 !s85 0
 !s101 -O0
 vDataMemory
-!s100 PMk]6DW=]5Y]2EoTVOnMP3
-IG<74WhSBkHS`mIm^2HYG>1
+!s100 M`KdaR7Dg;d0XD@^m=UR12
+I2?Gbo[AHDLS=LFTi?X^CV1
 VNV`MZ@U[A55RG6f_eM7:42
 R6
-Z7 w1562415153
+Z7 w1562477389
 Z8 8C:/Users/omid/Desktop/CA_Final/toy/Memory.v
 Z9 FC:/Users/omid/Desktop/CA_Final/toy/Memory.v
 L0 15
@@ -140,10 +140,10 @@ n@t@b
 !s85 0
 !s101 -O0
 vToy
-I`LHGRE`cV?LiJhKfd_m6G0
+I0g9;_9VCGDfSZ[LSA^8UK0
 VQnoLJ3nkl=l;hd=Xi1KE`1
 R6
-w1562415138
+w1562568519
 8C:/Users/omid/Desktop/CA_Final/toy/Toy.v
 FC:/Users/omid/Desktop/CA_Final/toy/Toy.v
 L0 1
@@ -153,6 +153,6 @@ r1
 R4
 R5
 n@toy
-!s100 fd:`on<R5>m6ME<oDMNSe0
+!s100 8BHcjW6mo`RI[k1OelBbG2
 !s85 0
 !s101 -O0

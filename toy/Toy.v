@@ -18,8 +18,7 @@ output [15:0]reg_t_out);
  
 	assign pc_add1=pc+1'b1;
 	assign pc_out=pc;
-	Controller Control1(flag_z,flag_c,inst_mem_out[15:12],src_pc,alu_op ,wr_t,wr_a ,src_a ,
-	wr_dmem,rd_dmem ,src_adr ,src_data);
+	Controller Control1(flag_z,flag_c,inst_mem_out[15:12],src_pc,alu_op ,wr_t,wr_a ,src_a , wr_dmem,rd_dmem ,src_adr ,src_data);
 	// ALL MUX 
   	// Mux3to1 pc_next
  	assign pc_next = src_pc[1] ? (src_pc[0] ? 12'hxxx: data_mem_out[11:0]) : (src_pc[0] ? inst_mem_out[11:0] : pc_add1);
