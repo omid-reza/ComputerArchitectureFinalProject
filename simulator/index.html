@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simulator - Select File</title>
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style/index.css">
+
+</head>
+<body>
+	<form method="POST" action="breakpoint.html" id="app" v-on:submit="checkForm">
+		<p v-if="errors.length">
+			<div class="alert alert-danger" role="alert" v-for="error in errors">
+			  {{ error }}
+			</div>
+        </p>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="File" ref="myFiles" @change="previewFiles">
+			<label class="custom-file-label input-file" for="customFile">Input File</label>
+		</div>
+		<div class="form-group">
+		 	<br>
+		    <label for="Compile-type">Compile Type</label>
+		    <select class="form-control" id="Compile-type" v-model="compile_type">
+		      	<option>Line By Line</option>
+		      <option>Once</option>
+		    </select>
+		</div>
+		<input class="btn btn-primary btn-send" type="submit" name="send" value="send">
+	</form>
+	</div>
+	<script type="text/javascript" src="script/vue.js"></script>
+	<script type="text/javascript" src="script/index.js"></script>
+</body>
+</html>

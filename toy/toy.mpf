@@ -223,7 +223,7 @@ resolution = 1ns
 UserTimeUnit = default
 
 ; Default run length
-RunLength = 2 us
+RunLength = 10 us
 
 ; Maximum iterations that can be run without advancing simulation time
 IterationLimit = 5000
