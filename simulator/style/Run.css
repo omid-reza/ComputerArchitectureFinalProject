@@ -1,0 +1,46 @@
+body{
+	background-color: #F7F7F7;
+}
+.regs_box,
+.pc_box,
+.instruction_mem_box,
+.stage_box{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width: 23.8%;
+	background-color: #F6CA6D;
+	height: 20%;
+	border-radius: 7px;
+	margin-left: 1%;
+	margin-top: 1%;
+}
+.reg_a,
+.reg_t,
+.pc,
+.inst_mem,
+.data_mem,
+.stage{
+	width: 70%;
+	margin-left: 15%;
+	border-radius: 5px;
+	text-align: center;
+}
+.reg_t{
+	margin-top: 1%;
+}
+.pc_box{
+	width: 20%;
+}
+.h_row{
+	display: flex;
+}
+.ins_mem_inp{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+.run{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 5%;
+}

@@ -1,0 +1,30 @@
+.breakPoint_line_box{
+	width: 80%;
+	margin-left: 10%;
+	border-radius: 10px;
+}
+.breakPoint_line_title{
+	margin-left: 3%;
+}
+body{
+	background-color: #F6CA6D;
+}
+.HavePadding{
+	padding-left: 5%;
+}
+.line_number,
+.line_number_title{
+	float: right;
+}
+.line_number{
+	margin-right: 4%;
+}
+.run_btn{
+	width: 80%;
+	border-radius: 5px;
+	margin-top: 1%;
+	margin-left: 10%;
+}
+.HaveMargin{
+	margin-top: 3%;
+}

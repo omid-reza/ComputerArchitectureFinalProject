@@ -9,13 +9,8 @@ module TB;
         forever #50 clk = ~clk;  
     end  
     initial begin    
-		// Initialize Inputs  
-		//$monitor ("register 3=%d, register 4=%d", reg3,reg4);  
 		reset = 1; 
-	
-		// Wait 100 ns for global reset to finish  
 		#48;  
-     	reset = 0;  
-        // Add stimulus here  
+     	reset = 0;
       end
  endmodule  

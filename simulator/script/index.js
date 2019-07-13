@@ -17,7 +17,7 @@ new Vue({
       e.preventDefault();
     },
     previewFiles() {
-			this.files = this.$refs.myFiles.files
+			this.files = this.$refs.myFiles.files;
 	  }
   }
 })

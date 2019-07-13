@@ -3,7 +3,7 @@ module InMemory (input [11:0]pc, output [15:0]Inst);
 	integer file_id;
 	integer i=0;
 	initial begin
-		file_id=$fopen("..\\app\\binary.txt","rb");
+		file_id=$fopen("..\\compiler\\binary.txt","rb");
 		while (! $feof(file_id)) begin
 			$fscanf(file_id,"%b\n",ram[i]);
 			i=i+1;
@@ -23,7 +23,7 @@ module DataMemory(input clk,rd,wr,input [11:0]mem_access_addr,input[15:0]wd , ou
 			ram[i] <= 16'd0;  
     end
     initial begin
-    	file_id=$fopen("..\\app\\data.txt","rb");
+    	file_id=$fopen("..\\compiler\\data.txt","rb");
 		while (! $feof(file_id)) begin
 			$fscanf(file_id,"%b\n",line);
 			address=line[27:16];
