@@ -44,3 +44,8 @@ body{
 	margin-left: 5%;
 	margin-top: 5%;
 }
+.show_type{
+	float: right;
+	margin-right: 1%;
+	width: 42%;
+}

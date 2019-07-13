@@ -10,26 +10,44 @@
 	<div id="app">
 		<div class="h_row">
 			<div class="regs_box">
-				<data style="margin-left: 5%;">Register A :</data>
+				<div style="display: flex;">
+				<label style="margin-left: 5%;">A:</label>
 				<data class="reg_a">{{reg_a}}</data>
+				<select name="compile_type" class="form-control show_type" v-on:change="reg_a_show_type_change($event)" v-model="reg_a_show_idex">
+			      	<option>Binary</option>
+			      	<option>Integer</option>
+			      	<option>Charcter</option>
+		    	</select>
+				</div>
 				<br>
-				<data style="margin-left: 5%;">Register T :</data>
-				<data class="reg_t">{{reg_t}}</data>
-				<br>
+				<div style="display: flex;">
+					<data style="margin-left: 5%">T:</data>
+					<data class="reg_t">{{reg_t}}</data>
+					<select name="compile_type" class="form-control show_type" v-on:change="reg_t_show_type_change($event)" v-model="reg_t_show_idex">
+				      	<option>Binary</option>
+				      	<option>Integer</option>
+				      	<option>Charcter</option>
+			    	</select>
+		    	</div>
 			</div>
 			<div class="instruction_mem_box">
 				<data style="margin-left: 5%;">Instruction memory index:</data>
 				<input class="form-control ins_mem_inp" id="memoy_index_inp" placeholder="index" v-model="ins_mem_index">
 				<br>
-				<data style="margin-left: 5%;">Data :</data>
 				<data class="inst_mem">{{ins_mem[ins_mem_index]}}</data>
 			</div>
 			<div class="instruction_mem_box">
 				<data style="margin-left: 5%;">Data memory index:</data>
 				<input class="form-control ins_mem_inp" id="memoy_index_inp" placeholder="index" v-model="data_mem_index">
 				<br>
-				<data style="margin-left: 5%;">Data :</data>
-				<data class="data_mem">{{data_mem[data_mem_index]}}</data>
+				<div style="display: flex;">
+					<data class="data_mem">{{data_mem[data_mem_index]}}</data>
+					<select name="compile_type" class="form-control show_type" v-on:change="data_mem_show_type_change($event)" v-model="data_mem_show_idex">
+					    <option>Binary</option>
+					    <option>Integer</option>
+					    <option>Charcter</option>
+				    </select>
+			    </div>
 			</div>
 			<div class="stage_box">
 				<data style="margin-left: 5%;">Code is in line:</data>
