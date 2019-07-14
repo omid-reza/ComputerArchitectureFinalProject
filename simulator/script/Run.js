@@ -1,6 +1,8 @@
 var app=new Vue({
   el: '#app',
   data: {
+    c:0,
+    z:0,
     pc:0,
     ins_mem:[],
     reg_a:0,
@@ -70,20 +72,28 @@ var app=new Vue({
         case"0001"://ADC
           this.reg_a=parseInt(this.reg_a,2)+parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           this.reg_a=this.reg_a.toString(2);
+          this.update_c();
+          this.check_z();
           this.pc++;
         break;
         case"0010"://XOR
           this.reg_a=parseInt(this.reg_a,2)^parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           this.reg_a=this.reg_a.toString(2);
+          this.update_c();
+          this.check_z();
           this.pc++;
         break;
         case"0011"://SBC
           this.reg_a=parseInt(this.reg_a,2)-parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           //-c
           this.reg_a=this.reg_a.toString(2);
+          this.update_c();
+          this.check_z();
           this.pc++;
         break;
         case"0100"://ROR
+        this.update_c();
+          this.check_z();
         break;
         case"0101"://TAT
           this.reg_t=this.reg_a;
@@ -92,11 +102,15 @@ var app=new Vue({
         case"0110"://OR
           this.reg_a=parseInt(this.reg_a,2)|parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           this.reg_a=this.reg_a.toString(2);
+          this.update_c();
+          this.check_z();
           this.pc++;
         break;
         case"1000"://AND
           this.reg_a=parseInt(this.reg_a,2)&parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           this.reg_a=this.reg_a.toString(2);
+          this.update_c();
+          this.check_z();
           this.pc++;
         break;
         case"1001"://LDC
@@ -105,8 +119,16 @@ var app=new Vue({
           this.pc++;
         break;
         case"1010"://BCC
+          if (this.c==1)
+            this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
+          else
+            this.pc++;
         break;
         case"1011"://BNE
+          if (this.z==0)
+            this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
+          else
+            this.pc++;
         break;
         case"1100"://LDI
           this.reg_a=this.data_mem[parseInt(this.reg_a,2)];
@@ -163,6 +185,18 @@ var app=new Vue({
         case "Charcter":
           return String.fromCharCode(parseInt(this.data_mem[this.data_mem_index], 2));
           break;
+      }
+    },
+    check_z:function(){
+      if(this.reg_a==0 & this.c==0)
+        this.z=1;
+      else
+        this.z=0;
+    },
+    update_c:function(){
+      if (this.reg_a.length==17){
+        this.c=this.reg_a.charAt(0);
+        this.reg_a=this.reg_a.substring(1,17);
       }
     }
   }

@@ -1,4 +1,4 @@
-<?php shell_exec('python index.py') ?>
+<?php shell_exec('python index.py'); ?>
 <!DOCTYPE html>
 <html>
 <head>
