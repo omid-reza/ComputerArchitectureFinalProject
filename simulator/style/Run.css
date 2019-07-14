@@ -2,7 +2,6 @@ body{
 	background-color: #F7F7F7;
 }
 .regs_box,
-.pc_box,
 .instruction_mem_box,
 .stage_box{
 	padding-top: 1%;
@@ -16,7 +15,6 @@ body{
 }
 .reg_a,
 .reg_t,
-.pc,
 .inst_mem,
 .data_mem,
 .stage{
@@ -27,9 +25,6 @@ body{
 }
 .reg_t{
 	margin-top: 1%;
-}
-.pc_box{
-	width: 20%;
 }
 .h_row{
 	display: flex;

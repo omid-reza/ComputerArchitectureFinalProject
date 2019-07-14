@@ -50,17 +50,11 @@
 			    </div>
 			</div>
 			<div class="stage_box">
-				<data style="margin-left: 5%;">Code is in line:</data>
-				<data class="stage">{{stage}}</data>
+				<data style="margin-left: 5%;">Program Counter:</data>
+				<data class="stage">{{pc}}</data>
 			</div>
 		</div>
-		<div class="h_row">
-			<div class="pc_box">
-				<data style="margin-left: 5%;">Program Counter :</data>
-				<data class="pc">{{pc}}</data>
-			</div>
-		</div>
-		<button v-on:click="run" type="button" class="btn btn-dark run">Run</button>
+		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
 	</div>
 	<script type="text/javascript" src="script/vue.js"></script>
 	<script type="text/javascript" src="script/Run.js"></script>
