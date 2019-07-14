@@ -54,6 +54,15 @@
 				<data class="stage">{{pc}}</data>
 			</div>
 		</div>
+		<div class="h_row">
+			<div class="stage_box">
+				<data style="margin-left: 5%;">c</data>
+				<data class="stage">{{c}}</data>
+				<br>
+				<data style="margin-left: 5%;">z</data>
+				<data class="stage">{{z}}</data>
+			</div>
+		</div>
 		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
 	</div>
 	<script type="text/javascript" src="script/vue.js"></script>

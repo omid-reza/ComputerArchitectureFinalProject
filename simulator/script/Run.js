@@ -25,10 +25,12 @@ var app=new Vue({
         this.fill_instruction_memory();
         this.fill_data_memory();
         this.btn_txt="Run";
-        return;
+      }else if (this.btn_txt=="Run") {
+        this.current_command=this.ins_mem[this.pc];
+        this.run_command();
+        if (this.current_command=='')
+          this.btn_txt="Finish"
       }
-      this.current_command=this.ins_mem[this.pc];
-      this.run_command();
     },
     fill_instruction_memory:function(){
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
@@ -115,7 +117,7 @@ var app=new Vue({
         break;
         case"1001"://LDC
           this.reg_a=this.data_mem[parseInt(this.current_command.substring(4,16), 2)];
-          // c=0
+          this.c=0;
           this.pc++;
         break;
         case"1010"://BCC
