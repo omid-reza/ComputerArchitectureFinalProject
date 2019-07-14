@@ -12,7 +12,7 @@
 			<div class="regs_box">
 				<div style="display: flex;">
 				<label style="margin-left: 5%;">A:</label>
-				<data class="reg_a">{{reg_a}}</data>
+				<data class="reg_a">{{display_reg_a()}}</data>
 				<select name="compile_type" class="form-control show_type" v-on:change="reg_a_show_type_change($event)" v-model="reg_a_show_idex">
 			      	<option>Binary</option>
 			      	<option>Integer</option>
@@ -22,7 +22,7 @@
 				<br>
 				<div style="display: flex;">
 					<data style="margin-left: 5%">T:</data>
-					<data class="reg_t">{{reg_t}}</data>
+					<data class="reg_t">{{display_reg_t()}}</data>
 					<select name="compile_type" class="form-control show_type" v-on:change="reg_t_show_type_change($event)" v-model="reg_t_show_idex">
 				      	<option>Binary</option>
 				      	<option>Integer</option>
@@ -41,7 +41,7 @@
 				<input class="form-control ins_mem_inp" id="memoy_index_inp" placeholder="index" v-model="data_mem_index">
 				<br>
 				<div style="display: flex;">
-					<data class="data_mem">{{data_mem[data_mem_index]}}</data>
+					<data class="data_mem">{{display_data_mem()}}</data>
 					<select name="compile_type" class="form-control show_type" v-on:change="data_mem_show_type_change($event)" v-model="data_mem_show_idex">
 					    <option>Binary</option>
 					    <option>Integer</option>

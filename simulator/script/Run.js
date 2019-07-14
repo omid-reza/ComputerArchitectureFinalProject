@@ -13,7 +13,10 @@ var app=new Vue({
     reg_t_show_idex:"",
     data_mem_show_idex:"",
     btn_txt:"PrePare To Run",
-    current_command:""
+    current_command:"",
+    reg_a_show_type:"Binary",
+    reg_t_show_type:"Binary",
+    data_mem_show_type:"Binary"
   },
   methods:{
     run: function (e) {
@@ -52,66 +55,13 @@ var app=new Vue({
       xmlhttp.send();
     },
     reg_a_show_type_change:function($event){
-      switch($event.target.value){
-        case "Binary":
-          if (typeof this.reg_a=="string")
-            this.reg_a=this.reg_a.charCodeAt(0);
-          this.reg_a=this.reg_a.toString(2);
-          break;
-        case "Integer":
-        if (this.reg_a.charAt(0)!='0' && this.reg_a.charAt(0)!='1')
-          this.reg_a=this.reg_a.charCodeAt(0);
-        else
-          this.reg_a=parseInt(this.reg_a, 2);
-          break;
-        case "Charcter":
-          if(typeof this.reg_a=="string")
-            this.reg_a=parseInt(this.reg_a, 2);
-          this.reg_a=String.fromCharCode(this.reg_a);
-          break;
-      }
+      this.reg_a_show_type=$event.target.value;
     },
     reg_t_show_type_change:function($event){
-      switch($event.target.value){
-        case "Binary":
-          if (typeof this.reg_t=="string")
-            this.reg_t=this.reg_t.charCodeAt(0);
-          this.reg_t=this.reg_t.toString(2);
-          break;
-        case "Integer":
-        if (this.reg_t.charAt(0)!='0' && this.reg_t.charAt(0)!='1')
-          this.reg_t=this.reg_t.charCodeAt(0);
-        else
-          this.reg_t=parseInt(this.reg_t, 2);
-          break;
-        case "Charcter":
-          if(typeof this.reg_t=="string")
-            this.reg_t=parseInt(this.reg_t, 2);
-          this.reg_t=String.fromCharCode(this.reg_t);
-          break;
-      }
+      this.reg_t_show_type=$event.target.value;
     },
     data_mem_show_type_change:function($event){
-      for (var i =0; i < this.data_mem.length; i++) {
-        switch($event.target.value){
-          case "Binary":
-            if (typeof this.data_mem[i]=="string")
-              this.data_mem[i]=this.data_mem[i].charCodeAt(0);
-            this.data_mem[i]=this.data_mem[i].toString(2);
-            break;
-          case "Integer":
-          if (this.data_mem[i].charAt(0)!='0' && this.data_mem[i].charAt(0)!='1')
-            this.data_mem[i]=this.data_mem[i].charCodeAt(0);
-          else
-            this.data_mem[i]=parseInt(this.data_mem[i], 2);
-            break;
-          case "Charcter":
-            if(typeof this.data_mem[i]=="string")
-              this.data_mem[i]=parseInt(this.data_mem[i], 2);
-            this.data_mem[i]=String.fromCharCode(this.data_mem[i]);
-            break;
-        }
-      }
+      this.data_mem_show_type=$event.target.value;
     },
     run_command:function(){
       switch(this.current_command.substring(0,4)){
@@ -119,7 +69,8 @@ var app=new Vue({
           this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
         break;
         case"0001":
-          this.reg_a=this.reg_a+parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          this.reg_a=parseInt(this.reg_a,2)+parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          this.reg_a=this.reg_a.toString(2);
           this.pc++;
         break;
         case"0010":
@@ -160,8 +111,44 @@ var app=new Vue({
         break;
       }
     },
-    ret:function(){
-      return "aa";
+    display_reg_a:function(){
+        switch(this.reg_a_show_type){
+        case "Binary":
+          return this.reg_a;
+          break;
+        case "Integer":
+          return parseInt(this.reg_a, 2);
+          break;
+        case "Charcter":
+          return String.fromCharCode(parseInt(this.reg_a, 2));
+          break;
+      }
+    },
+    display_reg_t:function(){
+        switch(this.reg_t_show_type){
+        case "Binary":
+          return this.reg_t;
+          break;
+        case "Integer":
+          return parseInt(this.reg_t, 2);
+          break;
+        case "Charcter":
+          return String.fromCharCode(parseInt(this.reg_t, 2));
+          break;
+      }
+    },
+    display_data_mem:function(){
+        switch(this.data_mem_show_type){
+        case "Binary":
+          return this.data_mem[this.data_mem_index];
+          break;
+        case "Integer":
+          return parseInt(this.data_mem[this.data_mem_index], 2);
+          break;
+        case "Charcter":
+          return String.fromCharCode(parseInt(this.data_mem[this.data_mem_index], 2));
+          break;
+      }
     }
   }
 })
