@@ -1,4 +1,3 @@
-// TODO : calculate all operator with binary value and store in binary value.show with func to convert to other types
 var app=new Vue({
   el: '#app',
   data: {
@@ -65,47 +64,63 @@ var app=new Vue({
     },
     run_command:function(){
       switch(this.current_command.substring(0,4)){
-        case"0000":
+        case"0000"://JMP
           this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
         break;
-        case"0001":
+        case"0001"://ADC
           this.reg_a=parseInt(this.reg_a,2)+parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
           this.reg_a=this.reg_a.toString(2);
           this.pc++;
         break;
-        case"0010":
+        case"0010"://XOR
+          this.reg_a=parseInt(this.reg_a,2)^parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          this.reg_a=this.reg_a.toString(2);
+          this.pc++;
         break;
-        case"0011":
+        case"0011"://SBC
+          this.reg_a=parseInt(this.reg_a,2)-parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          //-c
+          this.reg_a=this.reg_a.toString(2);
+          this.pc++;
         break;
-        case"0100":
+        case"0100"://ROR
         break;
-        case"0101":
+        case"0101"://TAT
           this.reg_t=this.reg_a;
           this.pc++;
         break;
-        case"0110":
+        case"0110"://OR
+          this.reg_a=parseInt(this.reg_a,2)|parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          this.reg_a=this.reg_a.toString(2);
+          this.pc++;
         break;
-        case"1000":
+        case"1000"://AND
+          this.reg_a=parseInt(this.reg_a,2)&parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
+          this.reg_a=this.reg_a.toString(2);
+          this.pc++;
         break;
-        case"1001":
+        case"1001"://LDC
+          this.reg_a=this.data_mem[parseInt(this.current_command.substring(4,16), 2)];
+          // c=0
+          this.pc++;
         break;
-        case"1010":
+        case"1010"://BCC
         break;
-        case"1011":
+        case"1011"://BNE
         break;
-        case"1100":
+        case"1100"://LDI
           this.reg_a=this.data_mem[parseInt(this.reg_a,2)];
           this.pc++;
         break;
-        case"1101":
+        case"1101"://STT
           this.data_mem[parseInt(this.reg_a, 2)]=this.reg_t;
           this.pc++;
         break;
-        case"1110":
+        case"1110"://LDA
           this.reg_a=this.data_mem[parseInt(this.current_command.substring(4,16), 2)];
           this.pc++;
         break;
-        case"1111":
+        case"1111"://STA
           this.data_mem[parseInt(this.current_command.substring(4,16), 2)]=this.reg_a;
           this.pc++;
         break;
