@@ -102,9 +102,12 @@ var app=new Vue({
           this.pc++;
         break;
         case"0100"://ROR
-          //TODO
-          this.update_c();
+          var temp;
+          temp=this.c;
+          this.c=this.reg_a.substring(0,1);
+          this.reg_a=this.reg_a.substring(1,this.reg_a.length)+temp;
           this.check_z();
+          this.pc++;
         break;
         case"0101"://TAT
           this.reg_t=this.reg_a;
