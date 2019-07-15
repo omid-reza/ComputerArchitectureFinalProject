@@ -1,10 +1,12 @@
 <?php
 	shell_exec('python index.py');
-	$myfile = fopen('compiled/breakpoint.txt', 'w');
+	if ($_POST['compile_type']=='Once') {
+		$myfile = fopen('compiled/breakpoint.txt', 'w');
 		foreach ($_POST['line'] as $line_number => $param_value) {
 			fwrite($myfile, $line_number."\n");
 		}
-	fclose($myfile);
+		fclose($myfile);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +22,7 @@
 				<div style="display: flex;">
 				<label style="margin-left: 5%;">A:</label>
 				<data class="reg_a">{{display_reg_a()}}</data>
-				<select name="compile_type" class="form-control show_type" v-on:change="reg_a_show_type_change($event)" v-model="reg_a_show_idex">
+				<select class="form-control show_type" v-on:change="reg_a_show_type_change($event)" v-model="reg_a_show_idex">
 			      	<option>Binary</option>
 			      	<option>Integer</option>
 			      	<option>Charcter</option>
@@ -30,7 +32,7 @@
 				<div style="display: flex;">
 					<data style="margin-left: 5%">T:</data>
 					<data class="reg_t">{{display_reg_t()}}</data>
-					<select name="compile_type" class="form-control show_type" v-on:change="reg_t_show_type_change($event)" v-model="reg_t_show_idex">
+					<select class="form-control show_type" v-on:change="reg_t_show_type_change($event)" v-model="reg_t_show_idex">
 				      	<option>Binary</option>
 				      	<option>Integer</option>
 				      	<option>Charcter</option>
@@ -49,7 +51,7 @@
 				<br>
 				<div style="display: flex;">
 					<data class="data_mem">{{display_data_mem()}}</data>
-					<select name="compile_type" class="form-control show_type" v-on:change="data_mem_show_type_change($event)" v-model="data_mem_show_idex">
+					<select class="form-control show_type" v-on:change="data_mem_show_type_change($event)" v-model="data_mem_show_idex">
 					    <option>Binary</option>
 					    <option>Integer</option>
 					    <option>Charcter</option>
@@ -72,8 +74,9 @@
 		</div>
 		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
 		<ul class="list-group" style="margin-top: 2%;">
-		    <li class="list-group-item" v-for="line in file">
+		    <li class="border border-secondary list-group-item line" v-for="(line, index) in file" v-bind:class="is_in_line(index)">
 				{{ line }}
+				<span class="badge badge-primary badge-pill have_breakpoint" v->{{ have_breakpoint(index) }}</span>
 			</li>
 		</ul>
 	</div>

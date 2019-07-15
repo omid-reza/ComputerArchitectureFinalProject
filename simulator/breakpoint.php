@@ -16,9 +16,16 @@
 				if (isset($_FILES["file"])) {
 					echo '<br><data  class="list-group-item list-group-item-action list-group-item-dark breakPoint_line_box">HavBreak<data class="breakPoint_line_title">Command</data><data class=" line_number_title">Command number</data></data>';
 					$myfile = fopen($_FILES["file"]["tmp_name"], 'r');
+					$breakpoint_lbl= fopen('compiled/breakpoint.txt', 'w');
 					$i=0;
 					while(!feof($myfile)) {
 						$line=fgets($myfile);
+						if ((isset($_POST['compile_type']) && ($_POST['compile_type']=='Line By Line'))) {
+							if (substr($line, 1,3)!="ORG" && substr($line, 1,4)!="DATA") {
+								fwrite($breakpoint_lbl, $i."\n");
+								$i++;		
+							}
+						}
 						if ((isset($_POST['compile_type']) && ($_POST['compile_type']=='Once'))) {
 							if (substr($line, 1,3)!="ORG" && substr($line, 1,4)!="DATA") {
 							 	echo '<br><data  class="list-group-item list-group-item-action list-group-item-dark breakPoint_line_box HavePadding"><input class="form-check-input" type="checkbox" name=line['.$i.'] id="defaultCheck1"><data class="breakPoint_line_title">'.$line.'</data><span class="badge badge-light line_number">'.($i+1).'</span></data>';
@@ -28,6 +35,7 @@
 					  fwrite($tempFile, $line);
 					}
 					fclose($myfile);
+					fclose($breakpoint_lbl);
 				}
 				fclose($tempFile);
 			?>

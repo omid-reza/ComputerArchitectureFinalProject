@@ -44,3 +44,12 @@ body{
 	margin-right: 1%;
 	width: 42%;
 }
+.line{
+	margin-left: 5%;
+	width: 90%;
+	margin-top: 0.5%;
+	border-radius: 4px;
+}
+.have_breakpoint{
+	float: right;
+}

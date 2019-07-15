@@ -13,7 +13,7 @@ var app=new Vue({
     reg_a_show_idex:"",
     reg_t_show_idex:"",
     data_mem_show_idex:"",
-    btn_txt:"PrePare To Run",
+    btn_txt:"Run",
     current_command:"",
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
@@ -23,15 +23,13 @@ var app=new Vue({
   },
   mounted(){
     this.read_file();
+    this.fetch_break_points();
+    this.fill_instruction_memory();
+    this.fill_data_memory();
   },
   methods:{
     run: function (e) {
-      if (this.btn_txt=="PrePare To Run") {
-        this.fill_instruction_memory();
-        this.fill_data_memory();
-        this.fetch_break_points();
-        this.btn_txt="Run";
-      }else if (this.btn_txt=="Run") {
+      if (this.btn_txt=="Run") {
         while(this.breakpoint_line_numbers.includes(this.pc)==false && (this.current_command!=''||this.pc==0)){
           this.current_command=this.ins_mem[this.pc];
           this.run_command();
@@ -235,15 +233,25 @@ var app=new Vue({
           file_temp_array=xmlhttp.responseText.split('\n');
         }
         var k;
-        for (k=0; k< file_temp_array.length-1;k++) {
+        for (k=0; k< file_temp_array.length;k++) {
           if (file_temp_array[k].search(".DATA")==-1 && file_temp_array[k].search(".ORG")==-1) {
             app.file.push(file_temp_array[k]);
           }
         }
-        console.log(app.file);
       }
       xmlhttp.open("GET", "../compiled/app.txt", true);
       xmlhttp.send();
+    },
+    is_in_line:function(index){
+      if (this.btn_txt=="Finish")
+        return "list-group-item-success";
+      if(index==this.pc && this.btn_txt=="Run")
+        return 'list-group-item-primary';
+    },
+    have_breakpoint:function(index){
+      if(this.breakpoint_line_numbers.includes(index)){
+        return 'Have Breakpoint';
+      }
     }
   }
 })
