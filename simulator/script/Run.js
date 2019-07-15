@@ -13,7 +13,7 @@ const app=new Vue({
     reg_a_show_idex:"",
     reg_t_show_idex:"",
     data_mem_show_idex:"",
-    btn_txt:"PrePare",
+    btn_txt:"Run",
     current_command:"",
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
@@ -236,12 +236,16 @@ const app=new Vue({
           if (file_temp_array[k].search(".ORG")==0){
             app.org=parseInt(splited_line[1]);
           }else if (file_temp_array[k].search(".DATA")==0){
-            app.variables.push([splited_line[1],splited_line[2], app.org]);
+            app.variables.push([splited_line[1], app.org]);
             app.org++;
           }else{
             app.file.push(file_temp_array[k]);
           }
         }
+        try{
+          if (app.variables.length>0)
+            app.variable_name_to_change=app.variables[0][0];
+        }catch(exection){}
       }
       xmlhttp.open("GET", "../compiled/app.txt", true);
       xmlhttp.send();
@@ -263,7 +267,7 @@ const app=new Vue({
     change_variable:function(){
       for (var q = 0; q < this.variables.length; q++) {
         if (this.variables[q][0]==this.variable_name_to_change)
-          this.data_mem[this.variables[q][2]]=parseInt(this.new_var_value).toString(2);
+          this.data_mem[this.variables[q][1]]=parseInt(this.new_var_value).toString(2);
       }
     }
   },
@@ -272,6 +276,5 @@ const app=new Vue({
     this.fill_instruction_memory();
     this.fill_data_memory();
     this.fetch_break_points();
-    this.btn_txt="Run";
   },
 })
