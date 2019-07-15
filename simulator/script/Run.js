@@ -18,7 +18,11 @@ var app=new Vue({
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
     data_mem_show_type:"Binary",
-    breakpoint_line_numbers:[]
+    breakpoint_line_numbers:[],
+    file:[]
+  },
+  mounted(){
+    this.read_file();
   },
   methods:{
     run: function (e) {
@@ -28,12 +32,14 @@ var app=new Vue({
         this.fetch_break_points();
         this.btn_txt="Run";
       }else if (this.btn_txt=="Run") {
-        while(this.breakpoint_line_numbers.includes(this.pc)==false){
+        while(this.breakpoint_line_numbers.includes(this.pc)==false && (this.current_command!=''||this.pc==0)){
           this.current_command=this.ins_mem[this.pc];
           this.run_command();
         }
+        this.current_command=this.ins_mem[this.pc];
+        this.run_command();
         if (this.current_command=='')
-          this.btn_txt="Finish"
+          this.btn_txt="Finish";
       }
     },
     fill_instruction_memory:function(){
@@ -98,7 +104,8 @@ var app=new Vue({
           this.pc++;
         break;
         case"0100"://ROR
-        this.update_c();
+          //TODO
+          this.update_c();
           this.check_z();
         break;
         case"0101"://TAT
@@ -218,6 +225,24 @@ var app=new Vue({
         }
       }
       xmlhttp.open("GET", "../compiled/breakpoint.txt", true);
+      xmlhttp.send();
+    },
+    read_file:function(){
+      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+      var file_temp_array=[];
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          file_temp_array=xmlhttp.responseText.split('\n');
+        }
+        var k;
+        for (k=0; k< file_temp_array.length-1;k++) {
+          if (file_temp_array[k].search(".DATA")==-1 && file_temp_array[k].search(".ORG")==-1) {
+            app.file.push(file_temp_array[k]);
+          }
+        }
+        console.log(app.file);
+      }
+      xmlhttp.open("GET", "../compiled/app.txt", true);
       xmlhttp.send();
     }
   }

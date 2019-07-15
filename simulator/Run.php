@@ -71,6 +71,11 @@
 			</div>
 		</div>
 		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
+		<ul class="list-group" style="margin-top: 2%;">
+		    <li class="list-group-item" v-for="line in file">
+				{{ line }}
+			</li>
+		</ul>
 	</div>
 	<script type="text/javascript" src="script/vue.js"></script>
 	<script type="text/javascript" src="script/Run.js"></script>
