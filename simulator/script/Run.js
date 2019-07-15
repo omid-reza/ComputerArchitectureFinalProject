@@ -17,17 +17,21 @@ var app=new Vue({
     current_command:"",
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
-    data_mem_show_type:"Binary"
+    data_mem_show_type:"Binary",
+    breakpoint_line_numbers:[]
   },
   methods:{
     run: function (e) {
       if (this.btn_txt=="PrePare To Run") {
         this.fill_instruction_memory();
         this.fill_data_memory();
+        this.fetch_break_points();
         this.btn_txt="Run";
       }else if (this.btn_txt=="Run") {
-        this.current_command=this.ins_mem[this.pc];
-        this.run_command();
+        while(this.breakpoint_line_numbers.includes(this.pc)==false){
+          this.current_command=this.ins_mem[this.pc];
+          this.run_command();
+        }
         if (this.current_command=='')
           this.btn_txt="Finish"
       }
@@ -200,6 +204,21 @@ var app=new Vue({
         this.c=this.reg_a.charAt(0);
         this.reg_a=this.reg_a.substring(1,17);
       }
+    },
+    fetch_break_points:function(){
+      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+      var tmp_array=[];
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          tmp_array=xmlhttp.responseText.split('\n');
+        }
+        var k;
+        for (k=0; k< tmp_array.length-1;k++) {
+          app.breakpoint_line_numbers.push(parseInt(tmp_array[k]));
+        }
+      }
+      xmlhttp.open("GET", "../compiled/breakpoint.txt", true);
+      xmlhttp.send();
     }
   }
 })

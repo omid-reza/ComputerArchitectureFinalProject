@@ -20,10 +20,12 @@
 					while(!feof($myfile)) {
 						$line=fgets($myfile);
 						if ((isset($_POST['compile_type']) && ($_POST['compile_type']=='Once'))) {
-				  			echo '<br><data  class="list-group-item list-group-item-action list-group-item-dark breakPoint_line_box HavePadding"><input class="form-check-input" type="checkbox" name=line'.$i.' id="defaultCheck1"><data class="breakPoint_line_title">'.$line.'</data><span class="badge badge-light line_number">'.($i+1).'</span></data>';
+							if (substr($line, 1,3)!="ORG" && substr($line, 1,4)!="DATA") {
+							 	echo '<br><data  class="list-group-item list-group-item-action list-group-item-dark breakPoint_line_box HavePadding"><input class="form-check-input" type="checkbox" name=line['.$i.'] id="defaultCheck1"><data class="breakPoint_line_title">'.$line.'</data><span class="badge badge-light line_number">'.($i+1).'</span></data>';
+								$i++;
+							}
 						}
 					  fwrite($tempFile, $line);
-					  $i++;
 					}
 					fclose($myfile);
 				}

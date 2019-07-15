@@ -1,4 +1,11 @@
-<?php shell_exec('python index.py'); ?>
+<?php
+	shell_exec('python index.py');
+	$myfile = fopen('compiled/breakpoint.txt', 'w');
+		foreach ($_POST['line'] as $line_number => $param_value) {
+			fwrite($myfile, $line_number."\n");
+		}
+	fclose($myfile);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,10 +63,10 @@
 		</div>
 		<div class="h_row">
 			<div class="stage_box">
-				<data style="margin-left: 5%;">c</data>
+				<data style="margin-left: 5%;">c:</data>
 				<data class="stage">{{c}}</data>
 				<br>
-				<data style="margin-left: 5%;">z</data>
+				<data style="margin-left: 5%;">z:</data>
 				<data class="stage">{{z}}</data>
 			</div>
 		</div>
