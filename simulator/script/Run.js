@@ -4,29 +4,29 @@ const app=new Vue({
     c:0,
     z:0,
     pc:0,
-    ins_mem:[],
     reg_a:0,
     reg_t:0,
+    file:[],
+    org:null,
+    ins_mem:[],
     data_mem:[],
-    ins_mem_index:null,
-    data_mem_index:null,
+    variables:[],
+    btn_txt:"Run",
     reg_a_show_idex:"",
     reg_t_show_idex:"",
-    data_mem_show_idex:"",
-    btn_txt:"Run",
     current_command:"",
+    new_var_value:null,
+    ins_mem_index:null,
+    data_mem_index:null,
+    data_mem_show_idex:"",
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
-    data_mem_show_type:"Binary",
     breakpoint_line_numbers:[],
-    file:[],
-    new_var_value:null,
-    org:null,
-    variables:[],
+    data_mem_show_type:"Binary",
     variable_name_to_change:null
   },
   methods:{
-    run: function (e) {
+    run(e) {
       if (this.btn_txt=="Run") {
         while(this.breakpoint_line_numbers.includes(this.pc)==false && (this.current_command!=''||this.pc==0)){
           this.current_command=this.ins_mem[this.pc];
@@ -38,39 +38,19 @@ const app=new Vue({
           this.btn_txt="Finish";
       }
     },
-    fill_instruction_memory:function(){
-      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-      xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-          app.ins_mem=xmlhttp.responseText.split('\n');
-      }
-      xmlhttp.open("GET", "../compiled/binary.txt", true);
-      xmlhttp.send();
+    reg_a_show_type_change(event){
+      this.reg_a_show_type=event.target.value;
     },
-    fill_data_memory:function(){
-      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-      var temp_array=[];
-      xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-          temp_array=xmlhttp.responseText.split('\n');
-        var i;
-        for (i=0; i< temp_array.length;i++) {
-          app.data_mem[parseInt((temp_array[i].substring(0, 12)), 2)]=temp_array[i].substring(12, 28);
-        }
-      }
-      xmlhttp.open("GET", "../compiled/data.txt", true);
-      xmlhttp.send();
+    reg_t_show_type_change(event){
+      this.reg_t_show_type=event.target.value;
     },
-    reg_a_show_type_change:function($event){
-      this.reg_a_show_type=$event.target.value;
+    data_mem_show_type_change(event){
+      this.data_mem_show_type=event.target.value;
     },
-    reg_t_show_type_change:function($event){
-      this.reg_t_show_type=$event.target.value;
+    variable_select_change(event){
+      this.variable_name_to_change=event.target.value;
     },
-    data_mem_show_type_change:function($event){
-      this.data_mem_show_type=$event.target.value;
-    },
-    run_command:function(){
+    run_command(){
       switch(this.current_command.substring(0,4)){
         case"0000"://JMP
           this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
@@ -158,7 +138,7 @@ const app=new Vue({
         break;
       }
     },
-    display_reg_a:function(){
+    display_reg_a(){
         switch(this.reg_a_show_type){
         case "Binary":
           return this.reg_a;
@@ -171,7 +151,7 @@ const app=new Vue({
           break;
       }
     },
-    display_reg_t:function(){
+    display_reg_t(){
         switch(this.reg_t_show_type){
         case "Binary":
           return this.reg_t;
@@ -184,7 +164,7 @@ const app=new Vue({
           break;
       }
     },
-    display_data_mem:function(){
+    display_data_mem(){
         switch(this.data_mem_show_type){
         case "Binary":
           return this.data_mem[this.data_mem_index];
@@ -197,41 +177,49 @@ const app=new Vue({
           break;
       }
     },
-    check_z:function(){
-      if(this.reg_a==0 & this.c==0)
-        this.z=1;
-      else
-        this.z=0;
-    },
-    update_c:function(){
-      if (this.reg_a.length==17){
-        this.c=this.reg_a.charAt(0);
-        this.reg_a=this.reg_a.substring(1,17);
+    fill_instruction_memory(){
+      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          app.ins_mem=xmlhttp.responseText.split('\n');
       }
+      xmlhttp.open("GET", "../compiled/binary.txt", true);
+      xmlhttp.send();
     },
-    fetch_break_points:function(){
+    fill_data_memory(){
+      var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+      var temp_array=[];
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          temp_array=xmlhttp.responseText.split('\n');
+        for (var i=0; i< temp_array.length;i++) {
+          app.data_mem[parseInt((temp_array[i].substring(0, 12)), 2)]=temp_array[i].substring(12, 28);
+        }
+      }
+      xmlhttp.open("GET", "../compiled/data.txt", true);
+      xmlhttp.send();
+    },
+    fetch_break_points(){
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       var tmp_array=[];
       xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           tmp_array=xmlhttp.responseText.split('\n');
-        var k;
-        for (k=0; k< tmp_array.length-1;k++) {
+        for (var k=0; k< tmp_array.length-1;k++) {
           app.breakpoint_line_numbers.push(parseInt(tmp_array[k]));
         }
       }
       xmlhttp.open("GET", "../compiled/breakpoint.txt", true);
       xmlhttp.send();
     },
-    read_file:function(){
+    read_file(){
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       var file_temp_array=[];
       xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           file_temp_array=xmlhttp.responseText.split('\n');
-        var k;
         var splited_line;
-        for (k=0; k< file_temp_array.length;k++) {
+        for (var k=0; k< file_temp_array.length;k++) {
           splited_line=file_temp_array[k].split(' ');
           if (file_temp_array[k].search(".ORG")==0){
             app.org=parseInt(splited_line[1]);
@@ -250,21 +238,28 @@ const app=new Vue({
       xmlhttp.open("GET", "../compiled/app.txt", true);
       xmlhttp.send();
     },
-    is_in_line:function(index){
+    is_in_line(index){
       if (this.btn_txt=="Finish")
         return "list-group-item-success";
       if(index==this.pc && this.btn_txt=="Run")
         return 'list-group-item-primary';
     },
-    have_breakpoint:function(index){
-      if(this.breakpoint_line_numbers.includes(index)){
-        return 'Have Breakpoint';
+    check_z(){
+      if(this.reg_a==0 & this.c==0)
+        this.z=1;
+      else
+        this.z=0;
+    },
+    update_c(){
+      if (this.reg_a.length==17){
+        this.c=this.reg_a.charAt(0);
+        this.reg_a=this.reg_a.substring(1,17);
       }
     },
-    variable_select_change:function(event){
-      this.variable_name_to_change=event.target.value;
+    have_breakpoint(index){
+      return(this.breakpoint_line_numbers.includes(index));
     },
-    change_variable:function(){
+    change_variable(){
       for (var q = 0; q < this.variables.length; q++) {
         if (this.variables[q][0]==this.variable_name_to_change)
           this.data_mem[this.variables[q][1]]=parseInt(this.new_var_value).toString(2);
@@ -276,5 +271,5 @@ const app=new Vue({
     this.fill_instruction_memory();
     this.fill_data_memory();
     this.fetch_break_points();
-  },
+  }
 })

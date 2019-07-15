@@ -17,7 +17,6 @@
 					if ((isset($_POST['compile_type']) && ($_POST['compile_type']=='Once'))) {
 						echo '<br><data  class="list-group-item list-group-item-action list-group-item-dark breakPoint_line_box">HavBreak<data class="breakPoint_line_title">Command</data><data class=" line_number_title">Command number</data></data>';
 					}
-
 					$myfile = fopen($_FILES["file"]["tmp_name"], 'r');
 					$breakpoint_lbl= fopen('compiled/breakpoint.txt', 'w');
 					$i=0;

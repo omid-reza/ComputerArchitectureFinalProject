@@ -3,6 +3,7 @@ body{
 }
 .regs_box,
 .instruction_mem_box,
+.data_mem_box,
 .stage_box,
 .new_var_box{
 	padding-top: 1%;
@@ -65,4 +66,7 @@ body{
 	width: 35%;
 	margin-left: 2%;
 	margin-right: 2%;
+}
+.stage_box{
+	margin-top: 4%;
 }

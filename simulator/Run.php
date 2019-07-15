@@ -45,7 +45,7 @@
 				<br>
 				<data class="inst_mem">{{ins_mem[ins_mem_index]}}</data>
 			</div>
-			<div class="instruction_mem_box">
+			<div class="data_mem_box">
 				<data style="margin-left: 5%;">Data memory index:</data>
 				<input class="form-control ins_mem_inp" placeholder="index" v-model="data_mem_index">
 				<br>
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 		<div class="h_row">
-			<div class="stage_box">
+			<div class="regs_box">
 				<data style="margin-left: 5%;">c:</data>
 				<data class="stage">{{c}}</data>
 				<br>
@@ -77,14 +77,16 @@
 					<option v-for="variablle in variables" v-bind:value="variablle[0]">{{variablle[0]}}</option>
 				</select>
 				<input class="form-control new_var_index" placeholder="New value In Integer" v-model="new_var_value">
-				<button v-on:click="change_variable" type="button" class="btn btn-dark">Change</button>
+				<button v-on:click="change_variable" type="button" class="btn btn-primary">Change</button>
 			</div>
 		</div>
 		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
 		<ul class="list-group" style="margin-top: 2%;">
 		    <li class="border border-secondary list-group-item line" v-for="(line, index) in file" v-bind:class="is_in_line(index)">
 				{{ line }}
-				<span class="badge badge-primary badge-pill have_breakpoint">{{ have_breakpoint(index) }}</span>
+				<span v-if="have_breakpoint(index)" class="badge badge-primary badge-pill have_breakpoint">
+					Have Breakpoint
+				</span>
 			</li>
 		</ul>
 	</div>
