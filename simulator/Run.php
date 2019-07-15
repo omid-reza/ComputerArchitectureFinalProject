@@ -22,7 +22,7 @@
 				<div style="display: flex;">
 				<label style="margin-left: 5%;">A:</label>
 				<data class="reg_a">{{display_reg_a()}}</data>
-				<select class="form-control show_type" v-on:change="reg_a_show_type_change($event)" v-model="reg_a_show_idex">
+				<select class="form-control show_type" v-on:change="reg_a_show_type_change($event)">
 			      	<option>Binary</option>
 			      	<option>Integer</option>
 			      	<option>Charcter</option>
@@ -32,7 +32,7 @@
 				<div style="display: flex;">
 					<data style="margin-left: 5%">T:</data>
 					<data class="reg_t">{{display_reg_t()}}</data>
-					<select class="form-control show_type" v-on:change="reg_t_show_type_change($event)" v-model="reg_t_show_idex">
+					<select class="form-control show_type" v-on:change="reg_t_show_type_change($event)">
 				      	<option>Binary</option>
 				      	<option>Integer</option>
 				      	<option>Charcter</option>
@@ -41,17 +41,17 @@
 			</div>
 			<div class="instruction_mem_box">
 				<data style="margin-left: 5%;">Instruction memory index:</data>
-				<input class="form-control ins_mem_inp" id="memoy_index_inp" placeholder="index" v-model="ins_mem_index">
+				<input class="form-control ins_mem_inp" placeholder="index" v-model="ins_mem_index">
 				<br>
 				<data class="inst_mem">{{ins_mem[ins_mem_index]}}</data>
 			</div>
 			<div class="instruction_mem_box">
 				<data style="margin-left: 5%;">Data memory index:</data>
-				<input class="form-control ins_mem_inp" id="memoy_index_inp" placeholder="index" v-model="data_mem_index">
+				<input class="form-control ins_mem_inp" placeholder="index" v-model="data_mem_index">
 				<br>
 				<div style="display: flex;">
 					<data class="data_mem">{{display_data_mem()}}</data>
-					<select class="form-control show_type" v-on:change="data_mem_show_type_change($event)" v-model="data_mem_show_idex">
+					<select class="form-control show_type" v-on:change="data_mem_show_type_change($event)">
 					    <option>Binary</option>
 					    <option>Integer</option>
 					    <option>Charcter</option>

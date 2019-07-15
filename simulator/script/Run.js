@@ -1,4 +1,4 @@
-var app=new Vue({
+const app=new Vue({
   el: '#app',
   data: {
     c:0,
@@ -13,19 +13,13 @@ var app=new Vue({
     reg_a_show_idex:"",
     reg_t_show_idex:"",
     data_mem_show_idex:"",
-    btn_txt:"Run",
+    btn_txt:"PrePare",
     current_command:"",
     reg_a_show_type:"Binary",
     reg_t_show_type:"Binary",
     data_mem_show_type:"Binary",
     breakpoint_line_numbers:[],
     file:[]
-  },
-  mounted(){
-    this.read_file();
-    this.fetch_break_points();
-    this.fill_instruction_memory();
-    this.fill_data_memory();
   },
   methods:{
     run: function (e) {
@@ -43,9 +37,8 @@ var app=new Vue({
     fill_instruction_memory:function(){
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           app.ins_mem=xmlhttp.responseText.split('\n');
-        }
       }
       xmlhttp.open("GET", "../compiled/binary.txt", true);
       xmlhttp.send();
@@ -54,9 +47,8 @@ var app=new Vue({
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       var temp_array=[];
       xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           temp_array=xmlhttp.responseText.split('\n');
-        }
         var i;
         for (i=0; i< temp_array.length;i++) {
           app.data_mem[parseInt((temp_array[i].substring(0, 12)), 2)]=temp_array[i].substring(12, 28);
@@ -217,9 +209,8 @@ var app=new Vue({
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       var tmp_array=[];
       xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           tmp_array=xmlhttp.responseText.split('\n');
-        }
         var k;
         for (k=0; k< tmp_array.length-1;k++) {
           app.breakpoint_line_numbers.push(parseInt(tmp_array[k]));
@@ -232,14 +223,12 @@ var app=new Vue({
       var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       var file_temp_array=[];
       xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           file_temp_array=xmlhttp.responseText.split('\n');
-        }
         var k;
         for (k=0; k< file_temp_array.length;k++) {
-          if (file_temp_array[k].search(".DATA")==-1 && file_temp_array[k].search(".ORG")==-1) {
+          if (file_temp_array[k].search(".DATA")==-1 && file_temp_array[k].search(".ORG")==-1)
             app.file.push(file_temp_array[k]);
-          }
         }
       }
       xmlhttp.open("GET", "../compiled/app.txt", true);
@@ -256,5 +245,12 @@ var app=new Vue({
         return 'Have Breakpoint';
       }
     }
-  }
+  },
+  created(){
+    this.read_file();
+    this.fill_instruction_memory();
+    this.fill_data_memory();
+    this.fetch_break_points();
+    this.btn_txt="Run";
+  },
 })
