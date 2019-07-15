@@ -3,7 +3,8 @@ body{
 }
 .regs_box,
 .instruction_mem_box,
-.stage_box{
+.stage_box,
+.new_var_box{
 	padding-top: 1%;
 	padding-bottom: 1%;
 	width: 23.8%;
@@ -52,4 +53,16 @@ body{
 }
 .have_breakpoint{
 	float: right;
+}
+.new_var_box{
+	width: 70%;
+}
+.new_var_select{
+	width: 35%;
+	margin-left: 1%;
+}
+.new_var_index{
+	width: 35%;
+	margin-left: 1%;
+	margin-right: 1%;
 }

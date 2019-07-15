@@ -19,7 +19,11 @@ const app=new Vue({
     reg_t_show_type:"Binary",
     data_mem_show_type:"Binary",
     breakpoint_line_numbers:[],
-    file:[]
+    file:[],
+    new_var_value:null,
+    org:null,
+    variables:[],
+    variable_name_to_change:null
   },
   methods:{
     run: function (e) {
@@ -226,9 +230,17 @@ const app=new Vue({
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
           file_temp_array=xmlhttp.responseText.split('\n');
         var k;
+        var splited_line;
         for (k=0; k< file_temp_array.length;k++) {
-          if (file_temp_array[k].search(".DATA")==-1 && file_temp_array[k].search(".ORG")==-1)
+          splited_line=file_temp_array[k].split(' ');
+          if (file_temp_array[k].search(".ORG")==0){
+            app.org=parseInt(splited_line[1]);
+          }else if (file_temp_array[k].search(".DATA")==0){
+            app.variables.push([splited_line[1],splited_line[2], app.org]);
+            app.org++;
+          }else{
             app.file.push(file_temp_array[k]);
+          }
         }
       }
       xmlhttp.open("GET", "../compiled/app.txt", true);
@@ -243,6 +255,15 @@ const app=new Vue({
     have_breakpoint:function(index){
       if(this.breakpoint_line_numbers.includes(index)){
         return 'Have Breakpoint';
+      }
+    },
+    variable_select_change:function(event){
+      this.variable_name_to_change=event.target.value;
+    },
+    change_variable:function(){
+      for (var q = 0; q < this.variables.length; q++) {
+        if (this.variables[q][0]==this.variable_name_to_change)
+          this.data_mem[this.variables[q][2]]=parseInt(this.new_var_value).toString(2);
       }
     }
   },
