@@ -74,7 +74,7 @@
 			<div class="new_var_box" style="display: flex;">
 				<data style="margin-left: 5%;">Edit Variable?</data>
 				<select class="form-control new_var_select" v-on:change="variable_select_change">
-					<option v-for="variablle in variables" v-bind:value="variablle[0]">{{variablle[0]}}</option>
+					<option v-for="variable in variables" v-bind:value="variable[0]">{{variable[0]}}</option>
 				</select>
 				<input class="form-control new_var_index" placeholder="New value In Integer" v-model="new_var_value">
 				<button v-on:click="change_variable" type="button" class="btn btn-primary">Change</button>
@@ -83,6 +83,9 @@
 		<button v-on:click="run" type="button" class="btn btn-dark run">{{btn_txt}}</button>
 		<ul class="list-group" style="margin-top: 2%;">
 		    <li class="border border-secondary list-group-item line" v-for="(line, index) in file" v-bind:class="is_in_line(index)">
+		    	<span class="badge badge-warning badge-pill run_time">
+					Runed {{get_runed_time(index)}} Time
+				</span>
 				{{ line }}
 				<span v-if="have_breakpoint(index)" class="badge badge-primary badge-pill have_breakpoint">
 					Have Breakpoint

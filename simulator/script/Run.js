@@ -10,6 +10,7 @@ const app=new Vue({
     org:null,
     ins_mem:[],
     data_mem:[],
+    run_time:[],
     variables:[],
     btn_txt:"Run",
     reg_a_show_idex:"",
@@ -51,6 +52,7 @@ const app=new Vue({
       this.variable_name_to_change=event.target.value;
     },
     run_command(){
+      this.run_time[this.pc]++;
       switch(this.current_command.substring(0,4)){
         case"0000"://JMP
           this.pc=(parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2));
@@ -228,6 +230,7 @@ const app=new Vue({
             app.org++;
           }else{
             app.file.push(file_temp_array[k]);
+            app.run_time.push(0);
           }
         }
         try{
@@ -264,6 +267,9 @@ const app=new Vue({
         if (this.variables[q][0]==this.variable_name_to_change)
           this.data_mem[this.variables[q][1]]=parseInt(this.new_var_value).toString(2);
       }
+    },
+    get_runed_time(index){
+      return this.run_time[index];
     }
   },
   created(){
