@@ -1,16 +1,30 @@
-C:/Users/amin/Desktop/toy_multi/control.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/control.v
+C:/Users/amin/Desktop/toy_multi/memory.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/memory.v
+Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
+-- Compiling module Memory
+
+Top level modules:
+	Memory
+
+} {} {}} C:/Users/amin/Desktop/toy_multi/control.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/control.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
 -- Compiling module Controller
 
 Top level modules:
 	Controller
 
-} {} {}} C:/Users/amin/Desktop/toy_multi/memory.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/memory.v
+} {} {}} C:/Users/amin/Desktop/toy_multi/TB.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/TB.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module Memory
+-- Compiling module TB
 
 Top level modules:
-	Memory
+	TB
+
+} {} {}} C:/Users/amin/Desktop/toy_multi/alu.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/alu.v
+Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
+-- Compiling module Alu
+
+Top level modules:
+	Alu
 
 } {} {}} C:/Users/amin/Desktop/toy_multi/reg.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/reg.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
@@ -22,20 +36,6 @@ Top level modules:
 	Reg
 	Reg_not_write
 	Reg_pc
-
-} {} {}} C:/Users/amin/Desktop/toy_multi/alu.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/alu.v
-Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module Alu
-
-Top level modules:
-	Alu
-
-} {} {}} C:/Users/amin/Desktop/toy_multi/TB.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/TB.v
-Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010
--- Compiling module TB
-
-Top level modules:
-	TB
 
 } {} {}} C:/Users/amin/Desktop/toy_multi/toy.v {1 {vlog -work work -nocovercells C:/Users/amin/Desktop/toy_multi/toy.v
 Model Technology ModelSim ALTERA vlog 6.5e Compiler 2010.02 Feb 27 2010

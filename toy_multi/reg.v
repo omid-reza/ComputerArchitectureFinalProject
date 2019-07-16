@@ -15,7 +15,7 @@ begin
 end
 
 endmodule
-
+////////////// az in reg estefade nashode ast 
 module Reg_pc (input clk,reset,wr_a,input [11:0] pc_next, output reg [11:0]pc_out);
   
 always @(posedge clk )  

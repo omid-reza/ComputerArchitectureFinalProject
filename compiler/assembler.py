@@ -25,8 +25,8 @@ def address_binary_convertor(decimal_address):
 data_address=None
 memory=[] # memory array with this item struct : [variable_name, address, data]
 input_file=open('app.txt', 'r') # Open File For Read Input(App) File => r :read mode
-data_output_file=open('data.txt', 'w') # Open File For Write OutPut(data&binary) Fille => w : write mode
-command_output_file=open('binary.txt', 'w') # Open File For Write OutPut(binary) Fille => w : write mode
+data_output_file=open('data.txt', 'w') # Open File For Write OutPut(data&binary) File => w : write mode
+command_output_file=open('binary.txt', 'w') # Open File For Write OutPut(binary) File => w : write mode
 commands_with_address=['JMP', 'ADC', 'XOR', 'SBC', 'OR','AND', 'LDC', 'BCC', 'BNE', 'LDA', 'STA'] # commands which need address
 commands=['JMP', 'ADC', 'XOR', 'SBC', 'ROR', 'TAT', 'OR', None, 'AND', 'LDC', 'BCC', 'BNE', 'LDI', 'STT', 'LDA', 'STA'] # commands, don't change it
 
