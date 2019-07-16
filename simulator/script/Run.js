@@ -72,8 +72,7 @@ const app=new Vue({
           this.pc++;
         break;
         case"0011"://SBC
-          this.reg_a=parseInt(this.reg_a,2)-parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2);
-          //-c
+          this.reg_a=parseInt(this.reg_a,2)-parseInt(this.data_mem[parseInt(this.current_command.substring(4,16), 2)],2)-this.c;
           this.reg_a=this.reg_a.toString(2);
           this.update_c();
           this.check_z();
