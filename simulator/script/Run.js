@@ -270,6 +270,11 @@ const app=new Vue({
     },
     get_runed_time(index){
       return this.run_time[index];
+    },
+    get_btn_color(){
+      if (this.btn_txt=="Finish")
+        return "btn-success disabled";
+      return "btn-dark";
     }
   },
   created(){
