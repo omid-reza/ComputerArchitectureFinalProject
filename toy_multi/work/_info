@@ -1,0 +1,174 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\amin\Desktop\Desktop\multi
+vAlu
+Ie55b7^ZzoD4QmaTQ6Vmf03
+Vz2mgf^j1V;61[ZfDQkj9`1
+Z0 dC:\Users\amin\Desktop\toy_multi
+w1562606266
+8C:/Users/amin/Desktop/toy_multi/alu.v
+FC:/Users/amin/Desktop/toy_multi/alu.v
+L0 2
+Z1 OV;L;6.5e;42
+r1
+31
+Z2 !s102 -nocovercells
+Z3 o-work work -nocovercells -O0
+n@alu
+!s100 Q41=e@07mP>14=[]jabjf0
+!s85 0
+!s101 -O0
+vController
+I2IHc6N49ffnWj5OfmSj>R2
+VdGLmQZIX8?bcD_l`We:VT1
+Z4 dC:\Users\amin\Desktop\toy_multi
+w1563253033
+8C:/Users/amin/Desktop/toy_multi/control.v
+FC:/Users/amin/Desktop/toy_multi/control.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@controller
+!s100 e9dlX]leP9VQh5`aa1EXo3
+!s85 0
+!s101 -O0
+vDataMemory
+I32M4ZhCQ[SanFngHZTJGO2
+VNV`MZ@U[A55RG6f_eM7:42
+R4
+w1562781369
+Z5 8C:/Users/amin/Desktop/toy_multi/memory.v
+Z6 FC:/Users/amin/Desktop/toy_multi/memory.v
+L0 2
+R1
+r1
+31
+R2
+R3
+n@data@memory
+!s100 9R<nLh=Z:iBQG[AB?JMSe0
+!s85 0
+!s101 -O0
+vMemory
+I?EB^I592Vf6TSeSGO9EoT3
+V0;dA<JHkH32FNOd:[2cgZ0
+R4
+w1563245285
+R5
+R6
+L0 2
+R1
+r1
+31
+R2
+R3
+n@memory
+!s100 dfdWhE>O`W>SN2;lzHdTY0
+!s85 0
+!s101 -O0
+vReg
+ImUP=]Eg7d;AOBB@o_M6M02
+Vi2XE7lN@1:>clGWm40TZ_2
+R4
+Z7 w1563253350
+Z8 8C:/Users/amin/Desktop/toy_multi/reg.v
+Z9 FC:/Users/amin/Desktop/toy_multi/reg.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@reg
+!s100 [Z;kOzfI1BGMLko;RfdMS1
+!s85 0
+!s101 -O0
+vReg_not_write
+Ih80Q0W<]^3W2AbNnK<;Qz3
+Vb_I9ZJ=>ZD7NVjzRiL_PX0
+R4
+R7
+R8
+R9
+L0 10
+R1
+r1
+31
+R2
+R3
+n@reg_not_write
+!s100 ^A4lPacNnEIb8DMG^=Z9I2
+!s85 0
+!s101 -O0
+vReg_pc
+I4KmKf<_0::fGB=HOPaFdP1
+VVFkH[]9i26mZFiCH4eP8:2
+R4
+R7
+R8
+R9
+L0 19
+R1
+r1
+31
+R2
+R3
+n@reg_pc
+!s100 QkDVRXI;R;<hJYVL:OLTA2
+!s85 0
+!s101 -O0
+vTB
+!s100 U1CMXKCaEPm5naVhFRAh_3
+IS^^6fI9Mjc?RnzGK1<oJg3
+Vc<=32996OT2f`M7E_UhYX1
+R4
+w1563177155
+8C:/Users/amin/Desktop/toy_multi/TB.v
+FC:/Users/amin/Desktop/toy_multi/TB.v
+L0 2
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+R3
+n@t@b
+vtest
+II7B=6^[cRI5n7489mND5X1
+Vk<3<[f=78GX=_HO53D;7>3
+R4
+w1563214983
+8C:/Users/amin/Desktop/toy_multi/tset.v
+FC:/Users/amin/Desktop/toy_multi/tset.v
+L0 3
+R1
+r1
+31
+R2
+R3
+!s100 jS7DD_GNWk]z9iK:7;`Oo3
+!s85 0
+!s101 -O0
+vToy
+Io]=01e@4UK2]UYSe8`DQi3
+VRic`V5cVjzU?JR[b53f?G3
+R4
+w1563253377
+8C:/Users/amin/Desktop/toy_multi/toy.v
+FC:/Users/amin/Desktop/toy_multi/toy.v
+L0 1
+R1
+r1
+31
+R2
+R3
+n@toy
+!s100 UO=k`WBD]_3_aPAzBEOcE2
+!s85 0
+!s101 -O0

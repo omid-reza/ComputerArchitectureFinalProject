@@ -1,0 +1,28 @@
+
+
+module test;
+	reg clk,reset,z,c;
+	wire [3:0]opcode;
+	 wire wr_t,wr_a,src_a,wr_dmem,rd_dmem,src_data,alu_src_a,alu_src_b,ir_wr,pc_wr;
+	wire [1:0]src_pc,src_adr;
+	wire [2:0]alu_op ;
+	
+
+ 	control uut1(clk,reset,opcode,z,c,src_pc,alu_op,wr_t,wr_a,src_a,
+ 	wr_dmem,rd_dmem,src_adr,src_data,alu_src_a,alu_src_b,ir_wr,pc_wr);    
+    initial begin 
+    
+     opcode=4'b1110;
+        clk = 0;    
+        forever #50 clk = ~clk;  
+    end  
+    initial begin    
+		  
+		reset = 1; 
+	
+	
+		#50;  
+     	reset = 0;  
+       
+      end
+ endmodule  

@@ -1,0 +1,177 @@
+module Controller(input clk,reset,input [3:0]opcode,input z,c,output reg[1:0]src_pc,
+output reg[2:0]alu_op ,output reg wr_t, reg wr_a ,reg src_a ,reg wr_dmem,reg rd_dmem ,
+ output reg [1:0]src_adr ,output reg src_data,output reg alu_src_a,reg alu_src_b , output reg ir_wr,
+ output reg pc_wr);
+  assign pc_wr=1'b1;
+ 
+  parameter IF=5'b00000;
+  parameter ID=5'b00001;
+  parameter EXE_JAM=5'b00010;
+  parameter EXE_R=5'b00011;
+  parameter EXE_R_ADD=5'b00100;
+  parameter EXE_R_XOR=5'b00101;
+  parameter EXE_R_SUB=5'b00110;
+  parameter EXE_R_ROR=5'b00111;
+  parameter EXE_R_OR=5'b01000;
+  parameter EXE_R_AND=5'b01001;
+  parameter EXE_ZC_LDC =5'b01010;
+  parameter EXE_ZC_LDI =5'b01011;
+  parameter EXE_ZC_STT =5'b01100;
+  parameter EXE_ZC_LDA =5'b01101;
+  parameter EXE_ZC_STA =5'b01110;
+  parameter MEM_LDC=5'b01111;
+  parameter MEM_LDI=5'b10000;
+  parameter MEM_STT=5'b10001;
+  parameter MEM_LDA=5'b10010;
+  parameter MEM_STA=5'b10011;
+  parameter WB_LDC=5'b10100;
+  parameter WB_LDI=5'b10101;
+  parameter WB_LDA=5'b10110;
+  parameter WB_R=5'b10111;
+   parameter EXE_ZC =5'b10000;
+  
+reg [4:0]state;
+reg [4:0]next_state;
+
+always @(posedge clk)
+begin
+ if(reset) 
+   state<=IF;
+ else 
+   state<=next_state;
+ 
+end
+
+always @(state or opcode)
+begin
+  case(state)
+   IF:next_state=ID;
+   ID:case(opcode)
+    4'b0001 :begin next_state=EXE_R_ADD; end
+    4'b0010 :begin next_state=EXE_R_XOR; end
+    4'b0011 :begin next_state=EXE_R_SUB; end
+    4'b0100 :begin next_state=EXE_R_ROR; end
+    4'b0110 :begin next_state=EXE_R_OR; end
+    4'b1000 :begin next_state=EXE_R_AND; end
+    
+    4'b1010 :begin next_state=EXE_ZC; end
+    4'b1011 :begin next_state=EXE_ZC; end 
+    4'b1001 :begin next_state=EXE_ZC_LDC; end 
+    4'b1100 :begin next_state=EXE_ZC_LDI; end 
+    4'b1101 :begin next_state=EXE_ZC_STT; end 
+    4'b0000 :next_state=EXE_JAM;
+    4'b1110 :begin next_state=MEM_LDA; end
+    4'b1111 :begin next_state=EXE_ZC_STA; end 
+    default:next_state=IF;
+    endcase
+
+  MEM_LDA:next_state=WB_LDA;
+  WB_LDA:next_state=IF;
+ 
+  EXE_JAM:next_state=IF;
+  EXE_ZC:next_state=IF;
+  
+  EXE_R_ADD:next_state=WB_R;
+  WB_R:next_state=IF;
+  EXE_R_XOR:next_state=WB_R;
+  EXE_R_SUB:next_state=WB_R;
+  EXE_R_ROR:next_state=WB_R;
+  EXE_R_OR:next_state=WB_R;
+  EXE_R_AND:next_state=WB_R;
+     default:next_state=IF;
+    endcase
+ 
+end
+
+always  @(state)
+begin
+  
+ case(state)
+IF:begin
+    pc_wr=1'b1;
+    src_adr=2'b00;
+    src_pc=2'b00;
+    rd_dmem=1'b1;
+    alu_src_a=1'b0;
+    alu_src_b=1'b0;
+    ir_wr=1'b1;
+    alu_op=3'b000;
+    end
+ID:begin
+    src_pc=2'b01;
+     
+    end
+EXE_JAM:begin
+     pc_wr=1'b1;
+    end
+  
+
+EXE_R_ADD:begin
+     alu_op=3'b000;
+     src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    src_adr=2'b01;
+    end
+  WB_R:begin
+    wr_a=1'b1;
+     src_a=1'b1;
+   end
+    MEM_LDA:begin
+       rd_dmem=1'b1;
+        src_adr=2'b01;
+       
+    end
+    WB_LDA:begin
+      src_a=1'b1;
+      wr_a=1'b1;
+      
+    end
+
+ EXE_R_XOR:begin
+     alu_op=3'b101;
+      src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    
+    end
+    EXE_R_SUB:begin
+     alu_op=3'b001;
+      src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    
+    end
+    EXE_R_ROR:begin
+     alu_op=3'b100;
+      src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    
+    end
+    EXE_R_OR:begin
+     alu_op=3'b110;
+      src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    
+    end
+    EXE_R_AND:begin
+     alu_op=3'b111;
+      src_a=1'b1;
+    alu_src_a=1'b1;
+    alu_src_b=1'b1;
+    wr_a=1'b1;
+    
+    end
+    
+ endcase 
+ 
+end
+
+endmodule

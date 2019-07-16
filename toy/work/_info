@@ -7,15 +7,15 @@ vAlu
 Ik;NnUQC?X1ab6Za;d4YN`1
 Vz2mgf^j1V;61[ZfDQkj9`1
 Z0 dC:\Users\omid\Desktop\CA_Final\toy
-w1562580690
-Z1 8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
-Z2 FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
+Z1 w1563209202
+Z2 8C:/Users/omid/Desktop/CA_Final/toy/Alu.v
+Z3 FC:/Users/omid/Desktop/CA_Final/toy/Alu.v
 L0 1
-Z3 OV;L;6.5e;42
+Z4 OV;L;6.5e;42
 r1
 31
-Z4 !s102 -nocovercells
-Z5 o-work work -nocovercells -O0
+Z5 !s102 -nocovercells
+Z6 o-work work -nocovercells -O0
 n@alu
 !s100 Iln>neOWBS;d@D]BUI=NA2
 !s85 0
@@ -23,16 +23,16 @@ n@alu
 vAluTb
 I?WNRk@PNd3FCjQl0P@O[93
 VWfVe7W7^>iFZWT1f^GL_Y1
-Z6 dC:\Users\omid\Desktop\CA_Final\toy
+Z7 dC:\Users\omid\Desktop\CA_Final\toy
 w1562396794
-R1
 R2
-L0 16
 R3
+L0 16
+R4
 r1
 31
-R4
 R5
+R6
 n@alu@tb
 !s100 a@0bX1@<k;KLRRL`YPT_d0
 !s85 0
@@ -40,16 +40,16 @@ n@alu@tb
 vController
 IWdaYDJDe8ZoC?Me@IlDl`1
 VGfeTV1VZ>50SLQ]g`9@g62
-R6
-w1562581003
+R7
+R1
 8C:/Users/omid/Desktop/CA_Final/toy/Controller.v
 FC:/Users/omid/Desktop/CA_Final/toy/Controller.v
 L0 1
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@controller
 !s100 ZR=KVm:9X@M7hN_j@=<]i1
 !s85 0
@@ -58,49 +58,49 @@ vDataMemory
 !s100 EK<nh:>lm;k`XgHEjQk3^1
 I<ibA4M5>:0@c4[W>z:5>E2
 VNV`MZ@U[A55RG6f_eM7:42
-R6
-Z7 w1562999212
+R7
+R1
 Z8 8C:/Users/omid/Desktop/CA_Final/toy/Memory.v
 Z9 FC:/Users/omid/Desktop/CA_Final/toy/Memory.v
 L0 15
-R3
+R4
 r1
 !s85 0
 31
 !s101 -O0
-R4
 R5
+R6
 n@data@memory
 vInMemory
 !s100 2921WCFQCFWa>91o`bzzd3
 IoMBe4T<5UAdUeIgWWmi6X3
 Vh?zooEkX4MWn89N73j=cM1
-R6
 R7
+R1
 R8
 R9
 L0 1
-R3
+R4
 r1
 !s85 0
 31
 !s101 -O0
-R4
 R5
+R6
 n@in@memory
 vRegA
 IP7ET>iLX^1_[;CgL9GH4d3
 VT_5=1IAjhVoRYUL0SzhMb2
-R6
-Z10 w1562407203
-Z11 8C:/Users/omid/Desktop/CA_Final/toy/Reg.v
-Z12 FC:/Users/omid/Desktop/CA_Final/toy/Reg.v
+R7
+R1
+Z10 8C:/Users/omid/Desktop/CA_Final/toy/Reg.v
+Z11 FC:/Users/omid/Desktop/CA_Final/toy/Reg.v
 L0 1
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@reg@a
 !s100 a7jJZDME^j>WOMOA?FTV60
 !s85 0
@@ -108,16 +108,16 @@ n@reg@a
 vRegT
 Ik<9kzePfl0XB@@fkhl@8P3
 V;2lEiKcCWX3dz`nW>DQ:f2
-R6
+R7
+R1
 R10
 R11
-R12
 L0 11
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@reg@t
 !s100 4YES1j:AKPFR=P`ULZRQU1
 !s85 0
@@ -125,16 +125,16 @@ n@reg@t
 vTB
 Ihn?O1@DJ]9KBcFc0;elgF2
 Vc<=32996OT2f`M7E_UhYX1
-R6
-w1562999104
+R7
+R1
 8C:/Users/omid/Desktop/CA_Final/toy/TB.v
 FC:/Users/omid/Desktop/CA_Final/toy/TB.v
 L0 1
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@t@b
 !s100 N3fSBif=c1Ig5iQKe9b>`1
 !s85 0
@@ -142,16 +142,16 @@ n@t@b
 vToy
 I0g9;_9VCGDfSZ[LSA^8UK0
 VQnoLJ3nkl=l;hd=Xi1KE`1
-R6
-w1562568519
+R7
+R1
 8C:/Users/omid/Desktop/CA_Final/toy/Toy.v
 FC:/Users/omid/Desktop/CA_Final/toy/Toy.v
 L0 1
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@toy
 !s100 8BHcjW6mo`RI[k1OelBbG2
 !s85 0

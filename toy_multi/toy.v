@@ -1,0 +1,52 @@
+module Toy (input clk,reset ,output [11:0]pc_in,pc_out,output[15:0] reg_a_out ,
+output [15:0]reg_t_out);
+ reg[11:0]pc;
+	wire [11:0] pc_next,adr_in_data_mem,pc_add1;
+	wire src_data,rd_dmem,wr_dmem,src_a,wr_a,
+	wr_t,pc_reset,flag_z ,flag_c,ir_write,alu_src_a,alu_src_b,pc_wr;
+	wire [2:0]alu_op;
+	wire [1:0]src_pc,src_adr;
+	wire [15:0] inst_mem_out,write_data,data_mem_out,reg_alu_out,
+	reg_t_in,reg_a_in,alu_out,reg_ir_out,reg_mdr_out,alu_in_a,alu_in_b;
+	//////pc reset
+	always @(posedge clk or posedge reset)  
+	begin   
+	    if(reset)  
+	    	pc<= 12'd0;
+	    else if (pc_wr) 
+	      pc <= pc_next;  
+	 end  
+ 
+	assign pc_add1=pc;
+	assign pc_out=pc;
+  ///pc 
+	assign pc_in=pc_next;
+  ///Controller
+	Controller Control1(clk,reset,reg_ir_out[15:12],flag_z,flag_c,src_pc,alu_op ,wr_t,wr_a ,src_a ,
+	 wr_dmem,rd_dmem ,src_adr ,src_data,alu_src_a,alu_src_b,ir_write,pc_wr);
+ 	/// memory
+	Memory Mem(clk,rd_dmem,wr_dmem,adr_in_data_mem,write_data,data_mem_out);
+	/// regs
+	Reg IR(clk,ir_write,data_mem_out,reg_ir_out);
+	Reg_not_write MDR(clk,data_mem_out,reg_mdr_out);
+	Reg_not_write alu(clk,alu_out,reg_alu_out);
+	Reg reg_a(clk,wr_a ,reg_a_in,reg_a_out);
+	Reg reg_t(clk,wr_t ,reg_a_out,reg_t_out);
+  /// alu
+	Alu Alu1(alu_op,alu_in_a,alu_in_b,alu_out,flag_z,flag_c);
+ 	/// Mux3to1 pc_next
+ 	assign pc_next = src_pc[1] ? (src_pc[0] ? 12'hxxx: reg_alu_out[11:0]) : 
+  (src_pc[0] ? reg_ir_out[11:0]: alu_out[11:0]);
+ 	/// mux 3to1 addrs data mem  
+ 	assign adr_in_data_mem = src_adr[1] ? (src_adr[0] ? 12'hxxx: reg_alu_out[11:0]) :
+ 	(src_adr[0] ? reg_ir_out[11:0]: pc_out);
+ 	/// mux 2to1 wr data to mem
+ 	assign write_data=(src_data==1'b1)? reg_t_out:reg_a_out;
+ 	/// mux 2to1 select alu and data mem for input reg A
+ 	assign reg_a_in=(src_a==1'b1)? data_mem_out :reg_alu_out;
+ 	/// mux 2to1 alu in a
+ 	assign alu_in_a=(alu_src_a==1'b1)? reg_a_out:pc_out;
+ 	/// mux 2to1 alu in b
+ 	assign alu_in_b=(alu_src_b==1'b1)? reg_mdr_out:12'b000000000001;
+
+endmodule
